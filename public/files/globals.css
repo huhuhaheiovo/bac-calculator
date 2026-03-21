@@ -1,0 +1,45 @@
+/* app/globals.css */
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --bg:      #0a0e0f;
+  --surface: #111617;
+  --card:    #161d1e;
+  --border:  #1f2b2c;
+  --accent:  #00d4aa;
+  --accent2: #ff6b35;
+  --accent3: #ffd166;
+  --text:    #e8f0f0;
+  --muted:   #7a9494;
+  --danger:  #ff4757;
+  --safe:    #00d4aa;
+  --caution: #ffd166;
+}
+
+@layer base {
+  * { box-sizing: border-box; }
+  html { scroll-behavior: smooth; }
+  body { background: var(--bg); color: var(--text); }
+
+  h1, h2, h3 { font-family: var(--font-serif); font-weight: 400; }
+
+  /* Inputs */
+  input[type='number'],
+  select {
+    @apply bg-surface border border-border text-text rounded-sm px-3 py-3
+           font-mono text-sm outline-none w-full
+           focus:border-accent transition-colors duration-200;
+  }
+  select option { background: var(--card); }
+}
+
+@layer utilities {
+  .text-accent  { color: var(--accent); }
+  .text-muted   { color: var(--muted); }
+  .text-danger  { color: var(--danger); }
+  .bg-surface   { background: var(--surface); }
+  .bg-card      { background: var(--card); }
+  .border-border { border-color: var(--border); }
+}
