@@ -42,26 +42,26 @@
   "landing": {
     "eyebrow": "Instant Estimator",
     "title": "BAC Calculator for fast, educational blood alcohol estimates.",
-    "description": "Estimate blood alcohol content with the Widmark formula, compare your result against common legal thresholds, and understand how long it may take to return to zero.",
+    "description": "This BAC Calculator uses the Widmark formula to estimate blood alcohol content, compare BAC estimates against common legal thresholds, and show how long alcohol may take to clear.",
     "primaryCta": "Start Calculator",
     "secondaryCta": "Learn How It Works",
     "cardTitle": "Use Responsibly",
     "cardLines": [
-      "This tool is an estimate, not a breathalyzer or medical test.",
-      "Never use a calculator to decide whether to drive after drinking.",
-      "Food, medication, genetics, and tolerance can all change your real BAC."
+      "This BAC Calculator is an estimate, not a breathalyzer or medical test.",
+      "Never use a BAC Calculator to decide whether to drive after drinking.",
+      "Food, medication, genetics, and tolerance can all change your real BAC estimate."
     ]
   },
   "calculator": {
     "eyebrow": "Interactive Tool",
     "title": "Estimate Your BAC",
-    "description": "Enter your details below. This calculator applies the Widmark formula to estimate blood alcohol content and approximate time to sober.",
+    "description": "Enter your details below. This BAC Calculator applies the Widmark formula to estimate blood alcohol content, BAC level, and approximate time to sober.",
     "modeSimple": "Simple",
     "modeNormal": "Normal",
     "simpleTitle": "Start Here",
-    "simpleDescription": "Pick a drink type, add your drinks, and enter a few basics to get a quick BAC estimate.",
+    "simpleDescription": "Pick a drink type, add your drinks, and enter a few basics to get a quick BAC Calculator estimate.",
     "simpleDrinkPrompt": "Choose what you drank",
-    "normalDescription": "Switch back to the full form if you want the detailed calculator layout.",
+    "normalDescription": "Switch back to the full form if you want the detailed BAC Calculator layout.",
     "sex": "Biological Sex",
     "male": "Male",
     "female": "Female",
@@ -116,7 +116,7 @@
   "table": {
     "eyebrow": "Education",
     "title": "What Your BAC Level Really Means",
-    "description": "Blood alcohol content measures grams of alcohol per deciliter of blood. Even a BAC of 0.02% can affect divided-attention tasks. Use this table as context for the number you see in the calculator.",
+    "description": "Blood alcohol content measures grams of alcohol per deciliter of blood. This BAC Calculator table adds context to the BAC estimate you see after using the calculator.",
     "headers": ["BAC Range", "Level", "Typical Effects"],
     "rows": [
       {
@@ -149,7 +149,7 @@
   "factors": {
     "eyebrow": "Science",
     "title": "Factors That Affect Your BAC",
-    "description": "No two people metabolize alcohol identically. The Widmark formula covers the major physiological variables, but context still matters.",
+    "description": "No two people metabolize alcohol identically. This BAC Calculator uses the Widmark formula, but real-world BAC outcomes still depend on several personal factors.",
     "items": [
       {
         "title": "Body Weight",
@@ -180,11 +180,11 @@
   "faq": {
     "eyebrow": "Help",
     "title": "BAC Calculator FAQ",
-    "description": "Common questions about blood alcohol content, the Widmark formula, and responsible drinking.",
+    "description": "Common questions about this BAC Calculator, blood alcohol content, the Widmark formula, and responsible drinking.",
     "items": [
       {
         "q": "How accurate is this BAC Calculator?",
-        "a": "This calculator uses the Widmark formula, a standard BAC estimation method. It is still only an estimate because food intake, hydration, medications, and metabolism can change real BAC."
+        "a": "This BAC Calculator uses the Widmark formula, a standard BAC estimation method. It is still only an estimate because food intake, hydration, medications, and metabolism can change real BAC."
       },
       {
         "q": "What counts as one standard drink?",
@@ -195,8 +195,8 @@
         "a": "A common average metabolism rate is 0.015% BAC per hour. Coffee, water, and cold showers do not speed this up. Only time lowers BAC."
       },
       {
-        "q": "Can I use this to decide if I am safe to drive?",
-        "a": "No. This tool is for education only. Never use an app to decide whether to drive after drinking."
+        "q": "Can I use this BAC Calculator to decide if I am safe to drive?",
+        "a": "No. This BAC Calculator is for education only. Never use an app to decide whether to drive after drinking."
       },
       {
         "q": "Why does biological sex affect the result?",
@@ -208,14 +208,14 @@
       },
       {
         "q": "What is the Widmark formula?",
-        "a": "It estimates BAC from alcohol consumed, body weight, a distribution constant, and elapsed time. It is widely used as a practical estimation method."
+        "a": "It estimates BAC from alcohol consumed, body weight, a distribution constant, and elapsed time. This BAC Calculator uses that practical estimation method to generate its result."
       }
     ]
   },
   "legal": {
     "eyebrow": "Legal Reference",
     "title": "Legal BAC Limits by State and Country",
-    "description": "The legal BAC limit for driving varies by jurisdiction and driver category. A legal BAC does not mean you are safe to drive.",
+    "description": "The legal BAC limit for driving varies by jurisdiction and driver category. This BAC Calculator compares your BAC estimate with common thresholds, but a legal BAC does not mean you are safe to drive.",
     "unitedStates": "United States",
     "international": "International",
     "note": "Always verify the current legal BAC limit with your local authority before driving. Laws can change and often vary by age, license type, and prior offenses.",
@@ -224,6 +224,25 @@
       {"state": "Utah", "note": "Strictest in the US", "limit": "0.05%"},
       {"state": "Under 21", "note": "Zero tolerance laws", "limit": "0.00%"},
       {"state": "CDL Drivers", "note": "Commercial vehicle operators", "limit": "0.04%"}
+    ]
+  },
+  "references": {
+    "eyebrow": "Method",
+    "title": "Why This BAC Calculator Uses These Inputs",
+    "description": "This BAC Calculator explains its estimate through standard drink conversion, Widmark-style BAC modeling, and the commonly cited average metabolism rate used in educational tools.",
+    "items": [
+      {
+        "title": "Widmark Formula",
+        "body": "This BAC Calculator uses the Widmark formula because it remains one of the most common practical methods for estimating blood alcohol content from drinks, body weight, sex, and elapsed time."
+      },
+      {
+        "title": "Standard Drink Conversion",
+        "body": "A BAC Calculator is only as useful as its drink assumptions, so standard drink sizes and alcohol-by-volume estimates are used to convert beer, wine, and spirits into comparable alcohol input."
+      },
+      {
+        "title": "Average Metabolism Rate",
+        "body": "This BAC Calculator also applies the widely used average decline rate of about 0.015% BAC per hour, while acknowledging that real metabolism can vary meaningfully from person to person."
+      }
     ]
   },
   "blog": {

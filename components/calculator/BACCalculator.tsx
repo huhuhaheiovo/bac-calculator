@@ -93,7 +93,7 @@ export default function BACCalculator() {
         <p className="mb-3 font-mono text-xs uppercase tracking-[0.3em] text-accent">
           {t("eyebrow")}
         </p>
-        <h2 className="mb-2 text-3xl md:text-4xl">{t("title")}</h2>
+        <p className="mb-2 text-3xl md:text-4xl">{t("title")}</p>
         <p className="mb-8 max-w-2xl text-sm leading-relaxed text-muted">
           {t("description")}
         </p>

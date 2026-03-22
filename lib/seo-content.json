@@ -29,6 +29,16 @@
       "title": "BAC Calculator vs Breathalyzer: Which Is More Accurate?",
       "description": "Compare BAC calculators, personal breathalyzers, and blood tests across accuracy, speed, cost, and legal reliability.",
       "h1": "BAC Calculator vs Breathalyzer: Which Is More Accurate?"
+    },
+    "oneBeerDriving": {
+      "title": "Can You Drive After One Beer?",
+      "description": "A practical guide to why one beer may still affect driving, how BAC estimates work, and why personal factors matter.",
+      "h1": "Can You Drive After One Beer?"
+    },
+    "halfGlassBaijiuDriving": {
+      "title": "How Long After Half a Glass of Baijiu Can You Drive?",
+      "description": "A practical estimate for how half a glass of 52% baijiu may affect BAC and why you should wait much longer than most people expect.",
+      "h1": "How Long After Half a Glass of Baijiu Can You Drive?"
     }
   },
   "zh": {
@@ -61,6 +71,16 @@
       "title": "BAC 计算器与呼气测试仪对比",
       "description": "比较 BAC 计算器、呼气测试仪和血液检测在准确度、速度、成本和法律用途上的差异。",
       "h1": "BAC 计算器与呼气酒精测试仪对比"
+    },
+    "oneBeerDriving": {
+      "title": "喝了一罐啤酒能开车吗",
+      "description": "了解一罐啤酒后是否适合开车、BAC 为什么不能只靠感觉判断，以及体重、饮酒速度和时间如何影响风险。",
+      "h1": "喝了一罐啤酒能开车吗"
+    },
+    "halfGlassBaijiuDriving": {
+      "title": "喝了半杯白酒多久能开车",
+      "description": "按中国常见 52 度白酒、一杯 220 毫升来估算，半杯白酒后往往需要 5 到 10 小时左右才更可能低于酒驾线。",
+      "h1": "喝了半杯白酒多久能开车"
     }
   }
 }

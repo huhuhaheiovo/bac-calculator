@@ -8,17 +8,19 @@ export function buildMetadata({
   description,
   path,
   ogImage = "/og-image.png",
+  availableLocales = locales,
 }: {
   locale: Locale;
   title: string;
   description: string;
   path: string;
   ogImage?: string;
+  availableLocales?: readonly Locale[];
 }): Metadata {
   const localizedPath = getLocalizedPath(locale, path);
   const url = `${SITE_URL}${localizedPath}`;
   const languages = Object.fromEntries(
-    locales.map((supportedLocale) => [
+    availableLocales.map((supportedLocale) => [
       supportedLocale,
       `${SITE_URL}${getLocalizedPath(supportedLocale, path)}`,
     ]),
@@ -31,7 +33,10 @@ export function buildMetadata({
       canonical: url,
       languages: {
         ...languages,
-        "x-default": `${SITE_URL}${getLocalizedPath(defaultLocale, path)}`,
+        "x-default": `${SITE_URL}${getLocalizedPath(
+          availableLocales.includes(defaultLocale) ? defaultLocale : availableLocales[0],
+          path,
+        )}`,
       },
     },
     openGraph: {

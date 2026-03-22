@@ -4,10 +4,7 @@ import "./globals.css";
 
 export const metadata: Metadata = {
   metadataBase: new URL("https://baccalculator.me"),
-  title: {
-    default: "BAC Calculator",
-    template: "%s | BAC Calculator",
-  },
+  title: "BAC Calculator",
   robots: {
     index: true,
     follow: true,

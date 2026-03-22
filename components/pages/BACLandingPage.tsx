@@ -4,6 +4,7 @@ import BACTable from "@/components/content/BACTable";
 import FAQ from "@/components/content/FAQ";
 import FactorsGrid from "@/components/content/FactorsGrid";
 import LegalLimits from "@/components/content/LegalLimits";
+import MethodReferences from "@/components/content/MethodReferences";
 import Footer from "@/components/layout/Footer";
 import Header from "@/components/layout/Header";
 import type {Locale} from "@/i18n/config";
@@ -78,6 +79,7 @@ export default async function BACLandingPage({
           <BACTable />
           <FactorsGrid />
           <LegalLimits />
+          <MethodReferences />
           <FAQ />
         </div>
       </main>

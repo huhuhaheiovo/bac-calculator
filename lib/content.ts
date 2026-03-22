@@ -49,6 +49,20 @@ export const blogPosts = {
       date: "2025-02-01",
       readTime: "5 分钟",
     },
+    {
+      slug: "can-you-drive-after-one-beer",
+      title: "喝了一罐啤酒能开车吗",
+      excerpt: "从 BAC、代谢时间和个体差异出发，解释为什么一罐啤酒后也不能只靠感觉判断自己能不能开车。",
+      date: "2025-03-22",
+      readTime: "4 分钟",
+    },
+    {
+      slug: "how-long-after-half-glass-baijiu-can-you-drive",
+      title: "喝了半杯白酒多久能开车",
+      excerpt: "按中国常见 52 度白酒、一杯 220 毫升来估算，半杯白酒后往往需要远比想象更长的时间，才更可能低于酒驾线。",
+      date: "2025-03-22",
+      readTime: "4 分钟",
+    },
   ],
 } as const;
 

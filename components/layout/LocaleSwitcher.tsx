@@ -1,7 +1,7 @@
 "use client";
 
-import {startTransition} from "react";
 import {useLocale, useTranslations} from "next-intl";
+import {startTransition} from "react";
 import {usePathname, useRouter} from "@/i18n/navigation";
 import {type Locale, locales} from "@/i18n/config";
 
@@ -11,26 +11,41 @@ export default function LocaleSwitcher() {
   const router = useRouter();
   const pathname = usePathname();
 
+  function switchLocale(nextLocale: Locale) {
+    if (nextLocale === locale) {
+      return;
+    }
+
+    startTransition(() => {
+      router.replace(pathname, {locale: nextLocale});
+    });
+  }
+
   return (
-    <label className="flex shrink-0 items-center gap-2 rounded-sm border border-border px-2.5 py-1.5 font-mono text-[11px] uppercase tracking-[0.12em] text-accent sm:px-3 sm:tracking-[0.2em]">
-      <span className="sr-only">{t("label")}</span>
-      <select
-        aria-label={t("label")}
-        className="w-auto min-w-0 whitespace-nowrap border-0 bg-transparent p-0 text-[11px] uppercase tracking-[0.12em] text-accent sm:tracking-[0.2em]"
-        value={locale}
-        onChange={(event) => {
-          const nextLocale = event.target.value as Locale;
-          startTransition(() => {
-            router.replace(pathname, {locale: nextLocale});
-          });
-        }}
-      >
-        {locales.map((entry) => (
-          <option key={entry} value={entry}>
+    <div
+      className="inline-flex shrink-0 rounded-[0.35rem] border border-border bg-surface/70 p-1"
+      role="group"
+      aria-label={t("label")}
+    >
+      {locales.map((entry) => {
+        const isActive = entry === locale;
+
+        return (
+          <button
+            key={entry}
+            type="button"
+            onClick={() => switchLocale(entry)}
+            aria-pressed={isActive}
+            className={`min-w-[3.1rem] rounded-[0.2rem] px-2.5 py-1.5 font-mono text-[11px] uppercase transition-all sm:min-w-[3.5rem] sm:px-3 ${
+              isActive
+                ? "bg-accent text-black"
+                : "text-muted hover:bg-white/[0.03] hover:text-text"
+            } ${entry === "zh" ? "tracking-[0.04em]" : "tracking-[0.1em] sm:tracking-[0.16em]"}`}
+          >
             {t(entry)}
-          </option>
-        ))}
-      </select>
-    </label>
+          </button>
+        );
+      })}
+    </div>
   );
 }
