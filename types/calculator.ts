@@ -32,6 +32,8 @@ export interface BACInput {
 
 export interface BACResult {
   bac: number;
+  startingBac: number;
+  hoursElapsed: number;
   level: BACLevel;
   soberInHours: number;
   timeToLegalHours: number;

@@ -23,6 +23,8 @@ export function calculateBAC(input: BACInput): BACResult {
 
   return {
     bac: rounded,
+    startingBac: Math.round(rawBAC * 1000) / 1000,
+    hoursElapsed: input.hoursElapsed,
     level: getBACLevel(rounded),
     soberInHours: rounded > 0 ? Math.ceil((rounded / METABOLISM_RATE) * 10) / 10 : 0,
     timeToLegalHours: timeToLegal,

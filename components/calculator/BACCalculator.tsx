@@ -327,10 +327,20 @@ export default function BACCalculator() {
                     />
                   </div>
                 </div>
-
               </motion.div>
             ) : null}
           </AnimatePresence>
+
+          {result ? (
+            <div className="mx-7 mb-7 rounded-[1.5rem] border border-border bg-card/60 p-6">
+              <BACOverTimeChart
+                result={result}
+                legalLimitPercent={selectedCountry.limitPercent}
+                countryName={selectedCountry.name[locale]}
+                t={t}
+              />
+            </div>
+          ) : null}
 
           {error ? (
             <p className="mx-7 mb-4 font-mono text-xs text-danger">{error}</p>
@@ -429,6 +439,185 @@ function MetricRow({
   );
 }
 
+function BACOverTimeChart({
+  result,
+  legalLimitPercent,
+  countryName,
+  t,
+}: {
+  result: BACResult;
+  legalLimitPercent: number;
+  countryName: string;
+  t: ReturnType<typeof useTranslations>;
+}) {
+  const width = 960;
+  const height = 420;
+  const padding = {top: 28, right: 28, bottom: 64, left: 78};
+  const chartWidth = width - padding.left - padding.right;
+  const chartHeight = height - padding.top - padding.bottom;
+  const totalHours = Math.max(result.hoursElapsed + result.soberInHours, 1);
+  const roundedMaxHours = Math.max(2, Math.ceil(totalHours / 2) * 2);
+  const yMaxBase = Math.max(result.startingBac, result.bac, legalLimitPercent, 0.02);
+  const yMax = roundUpChartValue(yMaxBase * 1.18);
+  const currentX = scaleX(result.hoursElapsed, roundedMaxHours, chartWidth, padding.left);
+  const currentY = scaleY(result.bac, yMax, chartHeight, padding.top);
+  const startY = scaleY(result.startingBac, yMax, chartHeight, padding.top);
+  const endX = scaleX(result.hoursElapsed + result.soberInHours, roundedMaxHours, chartWidth, padding.left);
+  const limitY = scaleY(legalLimitPercent, yMax, chartHeight, padding.top);
+  const xTicks = createTicks(roundedMaxHours, 4);
+  const yTicks = createYTicks(yMax);
+  const currentDotColor = result.isLegal ? "#2563eb" : "#ff4757";
+
+  return (
+    <div>
+      <p className="mb-5 font-mono text-xl uppercase tracking-[0.2em] text-muted">
+        {t("chartTitle")}
+      </p>
+
+      <svg viewBox={`0 0 ${width} ${height}`} className="w-full overflow-visible">
+        {yTicks.map((tick) => (
+          <g key={tick}>
+            <line
+              x1={padding.left}
+              y1={scaleY(tick, yMax, chartHeight, padding.top)}
+              x2={padding.left + chartWidth}
+              y2={scaleY(tick, yMax, chartHeight, padding.top)}
+              stroke="rgba(138,148,167,0.16)"
+              strokeWidth="1"
+            />
+            <text
+              x={padding.left - 12}
+              y={scaleY(tick, yMax, chartHeight, padding.top) + 6}
+              textAnchor="end"
+              className="fill-[#8a94a7] text-[18px]"
+            >
+              {formatPercent(tick)}
+            </text>
+          </g>
+        ))}
+
+        {xTicks.map((tick) => (
+          <g key={tick}>
+            <text
+              x={scaleX(tick, roundedMaxHours, chartWidth, padding.left)}
+              y={padding.top + chartHeight + 38}
+              textAnchor="middle"
+              className="fill-[#8a94a7] text-[18px]"
+            >
+              {`${tick}h`}
+            </text>
+          </g>
+        ))}
+
+        <line
+          x1={padding.left}
+          y1={padding.top + chartHeight}
+          x2={padding.left + chartWidth}
+          y2={padding.top + chartHeight}
+          stroke="rgba(138,148,167,0.28)"
+          strokeWidth="1.5"
+        />
+        <line
+          x1={padding.left}
+          y1={padding.top}
+          x2={padding.left}
+          y2={padding.top + chartHeight}
+          stroke="rgba(138,148,167,0.28)"
+          strokeWidth="1.5"
+        />
+
+        <line
+          x1={padding.left}
+          y1={startY}
+          x2={currentX}
+          y2={currentY}
+          stroke="#2563eb"
+          strokeWidth="4"
+          strokeLinecap="round"
+        />
+
+        <line
+          x1={currentX}
+          y1={currentY}
+          x2={endX}
+          y2={padding.top + chartHeight}
+          stroke="#16a34a"
+          strokeWidth="4"
+          strokeDasharray="10 8"
+          strokeLinecap="round"
+        />
+
+        <line
+          x1={padding.left}
+          y1={limitY}
+          x2={padding.left + chartWidth}
+          y2={limitY}
+          stroke="#ff4757"
+          strokeWidth="2"
+          strokeDasharray="12 8"
+        />
+
+        <circle cx={currentX} cy={currentY} r="10" fill={currentDotColor} stroke="#ffffff" strokeWidth="4" />
+        <text
+          x={currentX}
+          y={currentY - 22}
+          textAnchor="middle"
+          className="text-[20px] font-semibold"
+          fill={currentDotColor}
+        >
+          {`${result.bac.toFixed(3)}%`}
+        </text>
+
+        <text
+          x={padding.left + chartWidth - 6}
+          y={limitY - 10}
+          textAnchor="end"
+          className="fill-[#ff4757] text-[18px]"
+        >
+          {t("chartLimitLabel", {
+            limit: formatPercent(legalLimitPercent),
+            country: countryName,
+          })}
+        </text>
+      </svg>
+
+      <div className="mt-4 flex flex-wrap items-center justify-center gap-8 text-sm text-muted">
+        <LegendSwatch label={t("chartPast")} color="#2563eb" />
+        <LegendSwatch label={t("chartProjected")} color="#16a34a" dashed />
+        <LegendSwatch label={t("chartLegalLimit")} color="#ff4757" dashed />
+      </div>
+    </div>
+  );
+}
+
+function LegendSwatch({
+  label,
+  color,
+  dashed = false,
+}: {
+  label: string;
+  color: string;
+  dashed?: boolean;
+}) {
+  return (
+    <div className="flex items-center gap-3">
+      <svg width="32" height="10" viewBox="0 0 32 10" aria-hidden="true">
+        <line
+          x1="1"
+          y1="5"
+          x2="31"
+          y2="5"
+          stroke={color}
+          strokeWidth="3"
+          strokeDasharray={dashed ? "6 5" : undefined}
+          strokeLinecap="round"
+        />
+      </svg>
+      <span>{label}</span>
+    </div>
+  );
+}
+
 function formatPercent(value: number) {
   if (value === 0) {
     return "Zero";
@@ -439,6 +628,30 @@ function formatPercent(value: number) {
 
 function formatHours(value: number) {
   return `~${value.toFixed(1)}h`;
+}
+
+function scaleX(value: number, maxValue: number, chartWidth: number, offset: number) {
+  return offset + (value / maxValue) * chartWidth;
+}
+
+function scaleY(value: number, maxValue: number, chartHeight: number, offset: number) {
+  return offset + chartHeight - (value / maxValue) * chartHeight;
+}
+
+function roundUpChartValue(value: number) {
+  if (value <= 0.05) {
+    return 0.05;
+  }
+
+  return Math.ceil(value / 0.01) * 0.01;
+}
+
+function createTicks(maxValue: number, count: number) {
+  return Array.from({length: count + 1}, (_, index) => Math.round((maxValue / count) * index));
+}
+
+function createYTicks(maxValue: number) {
+  return [maxValue, maxValue * 0.75, maxValue * 0.5, maxValue * 0.25, 0];
 }
 
 function formatCountryOption(country: LegalLimit, locale: Locale) {
