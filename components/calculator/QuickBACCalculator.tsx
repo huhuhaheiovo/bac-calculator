@@ -267,7 +267,7 @@ function DrinkButton({
       <div className="mb-4 flex h-14 w-14 items-center justify-center rounded-sm border border-border bg-surface">
         <Image
           src={drink.iconSrc ?? ""}
-          alt={drink.label[locale]}
+          alt={`${drink.label[locale]} - BAC Calculator drink option`}
           width={34}
           height={34}
           className="h-8 w-8"

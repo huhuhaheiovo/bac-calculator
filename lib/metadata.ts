@@ -104,7 +104,7 @@ export const faqSchema = {
     },
     {
       "@type": "Question",
-      name: "How long does it take BAC to return to zero?",
+      name: "How long does it take for BAC to return to zero?",
       acceptedAnswer: {
         "@type": "Answer",
         text: "On average, BAC declines by about 0.015 percent per hour. Time is the only reliable way to lower BAC.",

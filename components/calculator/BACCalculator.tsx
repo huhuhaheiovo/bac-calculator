@@ -618,7 +618,7 @@ function formatPercent(value: number) {
     return "Zero Tolerance";
   }
 
-  return `${(value * 100).toFixed(value < 0.1 ? 1 : 0)}%`;
+  return `${value.toFixed(value === 0.08 ? 2 : 3)}%`;
 }
 
 function formatHours(value: number) {
