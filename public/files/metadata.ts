@@ -22,7 +22,7 @@ export function buildMetadata({
       title,
       description,
       url,
-      siteName: 'bac-calculator.com',
+      siteName: 'baccalculator.me',
       images: [{ url: `${SITE_URL}${ogImage}`, width: 1200, height: 630 }],
       type: 'website',
     },
@@ -45,7 +45,7 @@ export const webAppSchema = {
   applicationCategory: 'HealthApplication',
   operatingSystem: 'Any',
   offers: { '@type': 'Offer', price: '0' },
-  publisher: { '@type': 'Organization', name: 'bac-calculator.com', url: SITE_URL },
+  publisher: { '@type': 'Organization', name: 'baccalculator.me', url: SITE_URL },
 }
 
 export const faqSchema = {

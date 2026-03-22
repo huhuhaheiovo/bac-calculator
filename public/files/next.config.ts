@@ -27,8 +27,8 @@ const nextConfig: NextConfig = {
     return [
       {
         source: '/:path*',
-        has: [{ type: 'host', value: 'www.bac-calculator.com' }],
-        destination: 'https://bac-calculator.com/:path*',
+        has: [{ type: 'host', value: 'www.baccalculator.me' }],
+        destination: 'https://baccalculator.me/:path*',
         permanent: true,
       },
       // Root → main landing page

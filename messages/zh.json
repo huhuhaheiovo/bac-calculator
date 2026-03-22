@@ -1,0 +1,279 @@
+{
+  "meta": {
+    "siteTitle": "BAC 计算器",
+    "siteDescription": "使用 Widmark 公式免费估算血液酒精浓度、法定阈值和清醒时间。",
+    "homeTitle": "BAC 计算器 - 快速估算血液酒精浓度",
+    "homeDescription": "免费 BAC 计算器，使用 Widmark 公式估算血液酒精浓度、法定阈值和清醒时间。",
+    "calculatorTitle": "BAC 计算器",
+    "calculatorDescription": "估算血液酒精浓度，对照常见法定限制，并了解 Widmark 公式。",
+    "blogTitle": "BAC 知识文章",
+    "blogDescription": "阅读关于 BAC、法定阈值、Widmark 公式以及 BAC 计算器与呼气测试仪差异的文章。",
+    "howBacTitle": "BAC 是如何计算的：Widmark 公式解析",
+    "howBacDescription": "了解 BAC 计算器如何利用 Widmark 公式、分布常数和代谢速度估算血液酒精浓度。",
+    "legalLimitsTitle": "美国各州法定 BAC 限制",
+    "legalLimitsDescription": "了解美国成年驾驶员、商用驾驶员和 21 岁以下驾驶员的法定 BAC 标准。",
+    "comparisonTitle": "BAC 计算器与呼气测试仪对比",
+    "comparisonDescription": "比较 BAC 计算器、呼气测试仪和血液检测在准确度、速度、成本和法律用途上的差异。",
+    "languageAlternates": {
+      "en": "English",
+      "zh": "Chinese"
+    }
+  },
+  "header": {
+    "calculator": "计算器",
+    "learn": "知识文章",
+    "free": "免费 · 无需登录"
+  },
+  "localeSwitcher": {
+    "label": "语言",
+    "en": "EN",
+    "zh": "中文"
+  },
+  "footer": {
+    "description": "基于 Widmark 公式的免费 BAC 计算器。\n无广告，无需登录，不收集数据。",
+    "tools": "工具",
+    "learn": "知识文章",
+    "calculator": "BAC 计算器",
+    "howBac": "BAC 是如何计算的",
+    "legalLimits": "各州 BAC 限制",
+    "comparison": "BAC 与呼气测试仪",
+    "disclaimer": "本 BAC 计算器仅供教育和参考用途，不构成医疗或法律建议。饮酒后请勿依赖应用决定是否驾驶。"
+  },
+  "landing": {
+    "eyebrow": "即时估算",
+    "title": "快速估算血液酒精浓度的 BAC 计算器。",
+    "description": "使用 Widmark 公式估算血液酒精浓度，对照常见法定阈值，并了解大致需要多久才能恢复到 0。",
+    "primaryCta": "开始计算",
+    "secondaryCta": "了解计算方式",
+    "cardTitle": "请谨慎使用",
+    "cardLines": [
+      "这个工具只是估算，不是呼气测试仪，也不是医学检测。",
+      "饮酒后不要依赖计算器来决定是否可以驾驶。",
+      "食物、药物、基因和耐受度都会影响你的真实 BAC。"
+    ]
+  },
+  "calculator": {
+    "eyebrow": "交互工具",
+    "title": "估算你的 BAC",
+    "description": "填写下方信息。计算器会使用 Widmark 公式估算你的血液酒精浓度以及大致清醒时间。",
+    "modeSimple": "简单",
+    "modeNormal": "正常",
+    "simpleTitle": "从这里开始",
+    "simpleDescription": "先选择饮用的酒类，再填写杯数和几个基础信息，就能快速得到 BAC 估算结果。",
+    "simpleDrinkPrompt": "选择你喝的酒",
+    "normalDescription": "如果你更习惯完整表单，可以切换回正常模式。",
+    "sex": "生理性别",
+    "male": "男性",
+    "female": "女性",
+    "unit": "体重单位",
+    "weight": "体重",
+    "hours": "距离首次饮酒已过去多久（小时）",
+    "drinks": "饮酒杯数",
+    "drinkType": "酒类类型",
+    "country": "你的国家 / 法定 BAC 限值",
+    "resultLabel": "BAC（g/dL）",
+    "legalBadgeSafe": "低于法定限制",
+    "legalBadgeOver": "超过法定限制",
+    "timeToZero": "预计降到 0.00% BAC 时间",
+    "timeToLegal": "距离达到 {country} 合法驾驶标准还需多久",
+    "alreadyLegal": "已在法定范围内",
+    "timeToSober": "预计清醒时间",
+    "selectedThreshold": "当前阈值",
+    "calculate": "立即计算 BAC",
+    "weightError": "请输入你的体重。",
+    "drinksError": "请输入饮酒杯数。",
+    "belowLegal": "低于 {country} 法定限制（{limit}）",
+    "aboveLegal": "超过 {country} 法定限制（{limit}）",
+    "withinZero": "符合零容忍标准",
+    "aboveZero": "超过零容忍标准",
+    "levelLabels": {
+      "sober": "清醒",
+      "minimal": "轻微影响",
+      "mild": "轻度受损",
+      "impaired": "明显受损，请勿驾驶",
+      "severe": "严重受损",
+      "danger": "危险，请立即求助"
+    },
+    "levelDescriptions": {
+      "sober": "当前没有可测得的血液酒精浓度。",
+      "minimal": "可能有轻微放松感，通常低于多数地区法定限制。",
+      "mild": "接近法定上限，判断力可能开始受影响。",
+      "impaired": "已超过常见法定限制，受损明显。",
+      "severe": "BAC 已较危险，协调能力显著下降。",
+      "danger": "可能危及生命，应尽快寻求医疗帮助。"
+    },
+    "placeholderWeightLbs": "例如 160 磅",
+    "placeholderWeightKg": "例如 72 千克",
+    "placeholderHours": "例如 距离第一杯已过 2 小时",
+    "placeholderDrinks": "例如 3 杯"
+  },
+  "table": {
+    "eyebrow": "知识说明",
+    "title": "你的 BAC 数值代表什么",
+    "description": "血液酒精浓度表示每分升血液中的酒精克数。即使 BAC 只有 0.02%，也可能影响注意力分配。可以结合下表理解计算结果。",
+    "headers": ["BAC 范围", "状态", "典型影响"],
+    "rows": [
+      {
+        "range": "0.01 - 0.05%",
+        "level": "清醒 / 轻微",
+        "effects": "可能会略微放松、情绪提升，反应时间大体仍较稳定，通常低于多数地区法定阈值。"
+      },
+      {
+        "range": "0.06 - 0.08%",
+        "level": "轻度受损",
+        "effects": "抑制能力下降，判断力开始受影响，精细动作控制变差，接近或达到部分地区法定上限。"
+      },
+      {
+        "range": "0.09 - 0.15%",
+        "level": "明显受损",
+        "effects": "平衡、协调和反应速度明显下降，言语含糊和记忆断片更常见。"
+      },
+      {
+        "range": "0.16 - 0.25%",
+        "level": "严重受损",
+        "effects": "协调和平衡能力大幅下降，容易恶心和意识混乱，断片风险明显升高。"
+      },
+      {
+        "range": "0.26%+",
+        "level": "可能危及生命",
+        "effects": "存在酒精中毒、失去意识和呼吸抑制风险，应立即寻求医疗帮助。"
+      }
+    ]
+  },
+  "factors": {
+    "eyebrow": "科学因素",
+    "title": "影响 BAC 的因素",
+    "description": "每个人代谢酒精的方式都不完全相同。Widmark 公式覆盖了主要生理变量，但具体情境仍然很重要。",
+    "items": [
+      {
+        "title": "体重",
+        "body": "体重越高，体液总体积通常越大，酒精被稀释得更充分。"
+      },
+      {
+        "title": "生理性别",
+        "body": "身体成分和酒精脱氢酶水平差异会影响酒精在体内的分布方式。"
+      },
+      {
+        "title": "经过时间",
+        "body": "肝脏会随时间代谢酒精，常见平均速度约为每小时 0.015% BAC。"
+      },
+      {
+        "title": "进食情况",
+        "body": "饮酒前或饮酒时进食会减缓吸收，从而降低并延后峰值 BAC。"
+      },
+      {
+        "title": "药物",
+        "body": "处方药和非处方药都可能放大酒精影响，或改变身体对酒精的反应。"
+      },
+      {
+        "title": "基因与耐受",
+        "body": "基因差异会改变代谢速度。耐受度会影响你的主观感觉，但不会降低真实 BAC。"
+      }
+    ]
+  },
+  "faq": {
+    "eyebrow": "常见问题",
+    "title": "BAC 计算器 FAQ",
+    "description": "关于血液酒精浓度、Widmark 公式和安全饮酒的常见问题。",
+    "items": [
+      {
+        "q": "这个 BAC 计算器准确吗？",
+        "a": "它基于 Widmark 公式，是常见的 BAC 估算方法。但进食、补水、药物和个体代谢都会让真实 BAC 与估算值产生差异。"
+      },
+      {
+        "q": "一杯标准酒是多少？",
+        "a": "美国标准酒大约含 14 克纯酒精，相当于一瓶约 355 mL 啤酒、一杯约 150 mL 葡萄酒或一杯约 45 mL 烈酒。"
+      },
+      {
+        "q": "BAC 回到 0 需要多久？",
+        "a": "常见平均代谢速度约为每小时 0.015% BAC。咖啡、喝水或洗冷水澡都不能真正加快代谢，只有时间可以降低 BAC。"
+      },
+      {
+        "q": "能用它判断我是否可以开车吗？",
+        "a": "不能。这个工具仅供教育参考，饮酒后不要依赖任何应用来决定是否驾驶。"
+      },
+      {
+        "q": "为什么生理性别会影响结果？",
+        "a": "Widmark 公式对不同平均身体成分使用了不同分布常数，因此会影响酒精浓度的估算结果。"
+      },
+      {
+        "q": "吃东西会降低 BAC 吗？",
+        "a": "食物不会降低已经进入血液的酒精浓度，但会减慢吸收，进而降低峰值 BAC。"
+      },
+      {
+        "q": "什么是 Widmark 公式？",
+        "a": "它根据摄入酒精量、体重、分布常数和经过时间来估算 BAC，是实践中常用的估算方式。"
+      }
+    ]
+  },
+  "legal": {
+    "eyebrow": "法律参考",
+    "title": "各州与各国 BAC 法定限制",
+    "description": "不同司法辖区和驾驶类型的法定 BAC 限制并不相同。即使低于法定限制，也不代表一定适合驾驶。",
+    "unitedStates": "美国",
+    "international": "国际",
+    "note": "驾驶前请务必以当地官方最新规定为准。不同年龄、驾照类型和违法记录往往对应不同标准。",
+    "usCards": [
+      {"state": "多数州", "note": "联邦常见标准", "limit": "0.08%"},
+      {"state": "犹他州", "note": "美国最严格之一", "limit": "0.05%"},
+      {"state": "21 岁以下", "note": "零容忍", "limit": "0.00%"},
+      {"state": "商用驾照", "note": "商用车辆驾驶员", "limit": "0.04%"}
+    ]
+  },
+  "blog": {
+    "eyebrow": "知识文章",
+    "title": "更清楚地理解 BAC 与血液酒精浓度。",
+    "description": "阅读关于 BAC 计算器、法定驾驶阈值以及酒精代谢科学的文章。",
+    "back": "返回文章列表",
+    "readSuffix": "阅读",
+    "useCalculator": "使用 BAC 计算器"
+  },
+  "articles": {
+    "how": {
+      "title": "BAC 是如何计算的：Widmark 公式解析",
+      "readTime": "6 分钟阅读",
+      "intro": "几乎所有在线 BAC 计算器都建立在同一个基础上：Widmark 公式。理解这个公式如何工作，能帮助你更理性地看待估算结果，也能知道它的局限。",
+      "formulaTitle": "核心公式",
+      "formulaItems": [
+        "A 表示摄入的酒精总克数。",
+        "W 表示体重（克）。",
+        "r 表示 Widmark 分布常数。",
+        "T 表示从开始饮酒到现在经过的小时数。"
+      ],
+      "distributionTitle": "分布常数是什么",
+      "distributionBody": "分布常数用来估算酒精在体内水分中的分散程度。由于不同个体平均身体组成不同，Widmark 模型会对男性和女性使用不同常数。",
+      "conversionTitle": "如何把酒换算成酒精量",
+      "conversionBody": "一杯美国标准酒大约含有 14 克纯酒精。BAC 计算器会先把饮酒杯数和酒类换算成酒精克数，再代入公式。",
+      "metabolismTitle": "代谢速度",
+      "metabolismBody": "肝脏会随着时间代谢酒精，常见平均速度约为每小时 0.015% BAC。所以真正能降低 BAC 的只有时间。",
+      "limitsTitle": "任何计算器都有局限",
+      "limitsBody": "进食、药物、补水、基因和实际杯量都会让真实 BAC 与估算值产生偏差。请把任何计算器都看作帮助理解风险的参考工具，而不是精确测量。"
+    },
+    "legalLimits": {
+      "title": "美国各州法定 BAC 限制：2025 指南",
+      "readTime": "8 分钟阅读",
+      "intro": "理解法定 BAC 限制有助于判断饮酒驾驶风险。在美国，大多数成年驾驶员标准是 0.08%，但犹他州、商用驾驶员和 21 岁以下驾驶员适用更严格的规则。",
+      "federalTitle": "联邦常见标准：0.08%",
+      "federalBody": "美国大多数州对 21 岁及以上驾驶员采用 0.08% 标准，而犹他州自 2019 年起将限制降到 0.05%。",
+      "selectedTitle": "部分州限值示例",
+      "tableHeaders": ["州", "成人标准", "商用驾照", "21 岁以下"],
+      "under21Title": "21 岁以下零容忍",
+      "under21Body": "对 21 岁以下驾驶员而言，很多州的 BAC 限制只有 0.00% 到 0.02%，这意味着一杯酒也可能带来法律风险。",
+      "cdlTitle": "商用驾驶员限值",
+      "cdlBody": "在美国，商用驾照驾驶员通常适用更严格的 0.04% 标准，因为商用车辆对公共安全要求更高。"
+    },
+    "comparison": {
+      "title": "BAC 计算器与呼气酒精测试仪对比",
+      "readTime": "5 分钟阅读",
+      "intro": "BAC 计算器、呼气酒精测试仪和血液检测都试图回答类似的问题，但它们在准确度、成本、便利性和法律效力上差异很大。",
+      "glanceTitle": "快速对比",
+      "headers": ["", "BAC 计算器", "呼气测试仪", "血液检测"],
+      "calculatorTitle": "为什么计算器准确度更低",
+      "calculatorBody": "计算器只能根据你输入的数据进行估算，无法直接测量呼气或血液中的酒精浓度，因此只能假设平均代谢速度和标准杯量。",
+      "breathalyzerTitle": "呼气测试仪：更好，但并不完美",
+      "breathalyzerBody": "个人呼气测试仪通常比计算器更接近真实值，但设备校准、呼气方式和口腔残留酒精都会影响结果。",
+      "bloodTitle": "血液检测：金标准",
+      "bloodBody": "实验室血液检测通常最准确，也拥有最强的法律效力，但它无法即时完成，因此不适合日常即时判断。"
+    }
+  }
+}

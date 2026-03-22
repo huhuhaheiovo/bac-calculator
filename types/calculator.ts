@@ -1,5 +1,8 @@
+import type {Locale} from "@/i18n/config";
+
 export type Sex = "male" | "female";
 export type WeightUnit = "lbs" | "kg";
+export type LocalizedLabel = Record<Locale, string>;
 
 export type BACLevel =
   | "sober"
@@ -11,9 +14,11 @@ export type BACLevel =
 
 export interface DrinkType {
   id: string;
-  label: string;
   alcoholOz: number;
-  description: string;
+  label: LocalizedLabel;
+  description: LocalizedLabel;
+  iconSrc?: string;
+  showInSimpleMode?: boolean;
 }
 
 export interface BACInput {
@@ -22,20 +27,21 @@ export interface BACInput {
   drinks: number;
   alcoholOzPerDrink: number;
   hoursElapsed: number;
+  legalLimitPercent: number;
 }
 
 export interface BACResult {
   bac: number;
   level: BACLevel;
   soberInHours: number;
+  timeToLegalHours: number;
   isLegal: boolean;
 }
 
 export interface LegalLimit {
   id: string;
-  country: string;
-  nativeName: string;
-  label: string;
+  code: string;
+  name: LocalizedLabel;
   limitPercent: number;
-  notes: string;
+  notes: LocalizedLabel;
 }

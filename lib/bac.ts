@@ -16,12 +16,17 @@ export function calculateBAC(input: BACInput): BACResult {
   const rawBAC = (alcoholG / (weightG * WIDMARK_R[input.sex])) * 100;
   const bac = Math.max(0, rawBAC - METABOLISM_RATE * input.hoursElapsed);
   const rounded = Math.round(bac * 1000) / 1000;
+  const timeToLegal =
+    rounded > input.legalLimitPercent
+      ? Math.ceil(((rounded - input.legalLimitPercent) / METABOLISM_RATE) * 10) / 10
+      : 0;
 
   return {
     bac: rounded,
     level: getBACLevel(rounded),
     soberInHours: rounded > 0 ? Math.ceil((rounded / METABOLISM_RATE) * 10) / 10 : 0,
-    isLegal: rounded < 0.08,
+    timeToLegalHours: timeToLegal,
+    isLegal: rounded <= input.legalLimitPercent,
   };
 }
 

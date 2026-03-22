@@ -1,0 +1,279 @@
+{
+  "meta": {
+    "siteTitle": "BAC Calculator",
+    "siteDescription": "Free BAC calculator using the Widmark formula to estimate blood alcohol content, legal limits, and time to sober.",
+    "homeTitle": "BAC Calculator - Estimate Blood Alcohol Content Instantly",
+    "homeDescription": "Free BAC calculator using the Widmark formula to estimate blood alcohol content, legal thresholds, and time to sober.",
+    "calculatorTitle": "BAC Calculator - Check Blood Alcohol Content Online",
+    "calculatorDescription": "Use this BAC calculator to estimate blood alcohol content, compare common legal limits, and understand the Widmark formula.",
+    "blogTitle": "BAC Calculator Blog - Learn About Blood Alcohol Content",
+    "blogDescription": "Research-backed articles about BAC, legal limits, the Widmark formula, and how calculator estimates compare to breathalyzers.",
+    "howBacTitle": "How BAC Is Calculated: The Widmark Formula Explained",
+    "howBacDescription": "Learn how BAC calculators use the Widmark formula, distribution constants, and metabolism rate to estimate blood alcohol content.",
+    "legalLimitsTitle": "Legal BAC Limits by State 2025",
+    "legalLimitsDescription": "Selected US legal BAC limits for adult drivers, CDL drivers, and drivers under 21, including Utah's stricter threshold.",
+    "comparisonTitle": "BAC Calculator vs Breathalyzer: Which Is More Accurate?",
+    "comparisonDescription": "Compare BAC calculators, personal breathalyzers, and blood tests across accuracy, speed, cost, and legal reliability.",
+    "languageAlternates": {
+      "en": "English",
+      "zh": "Chinese"
+    }
+  },
+  "header": {
+    "calculator": "Calculator",
+    "learn": "Learn",
+    "free": "Free · No Login"
+  },
+  "localeSwitcher": {
+    "label": "Language",
+    "en": "EN",
+    "zh": "中文"
+  },
+  "footer": {
+    "description": "Free BAC calculator powered by the Widmark formula.\nNo ads. No login. No data collected.",
+    "tools": "Tools",
+    "learn": "Learn",
+    "calculator": "BAC Calculator",
+    "howBac": "How BAC Is Calculated",
+    "legalLimits": "Legal Limits by State",
+    "comparison": "BAC vs Breathalyzer",
+    "disclaimer": "This BAC calculator is provided for educational purposes only. It is not medical or legal advice. Never use an app to decide whether to drive after drinking. If you need help with alcohol use, contact SAMHSA at 1-800-662-4357."
+  },
+  "landing": {
+    "eyebrow": "Instant Estimator",
+    "title": "BAC Calculator for fast, educational blood alcohol estimates.",
+    "description": "Estimate blood alcohol content with the Widmark formula, compare your result against common legal thresholds, and understand how long it may take to return to zero.",
+    "primaryCta": "Start Calculator",
+    "secondaryCta": "Learn How It Works",
+    "cardTitle": "Use Responsibly",
+    "cardLines": [
+      "This tool is an estimate, not a breathalyzer or medical test.",
+      "Never use a calculator to decide whether to drive after drinking.",
+      "Food, medication, genetics, and tolerance can all change your real BAC."
+    ]
+  },
+  "calculator": {
+    "eyebrow": "Interactive Tool",
+    "title": "Estimate Your BAC",
+    "description": "Enter your details below. This calculator applies the Widmark formula to estimate blood alcohol content and approximate time to sober.",
+    "modeSimple": "Simple",
+    "modeNormal": "Normal",
+    "simpleTitle": "Start Here",
+    "simpleDescription": "Pick a drink type, add your drinks, and enter a few basics to get a quick BAC estimate.",
+    "simpleDrinkPrompt": "Choose what you drank",
+    "normalDescription": "Switch back to the full form if you want the detailed calculator layout.",
+    "sex": "Biological Sex",
+    "male": "Male",
+    "female": "Female",
+    "unit": "Weight Unit",
+    "weight": "Body Weight",
+    "hours": "Hours Since First Drink",
+    "drinks": "Number of Drinks",
+    "drinkType": "Drink Type",
+    "country": "Your Country / Legal BAC Limit",
+    "resultLabel": "BAC (g/dL)",
+    "legalBadgeSafe": "Within the legal limit",
+    "legalBadgeOver": "Over the legal limit",
+    "timeToZero": "Time to 0.00% BAC",
+    "timeToLegal": "Time to drive legally in {country}",
+    "alreadyLegal": "Already within the legal limit",
+    "timeToSober": "Est. time to sober",
+    "selectedThreshold": "Selected threshold",
+    "calculate": "Calculate My BAC Now",
+    "weightError": "Please enter your body weight.",
+    "drinksError": "Please enter the number of drinks.",
+    "belowLegal": "Below {country} legal limit ({limit})",
+    "aboveLegal": "EXCEEDS {country} legal limit ({limit})",
+    "withinZero": "At zero tolerance",
+    "aboveZero": "Above zero tolerance",
+    "levelLabels": {
+      "sober": "SOBER",
+      "minimal": "MINIMAL",
+      "mild": "MILD IMPAIRMENT",
+      "impaired": "IMPAIRED - DO NOT DRIVE",
+      "severe": "SEVERELY IMPAIRED",
+      "danger": "DANGER - SEEK HELP"
+    },
+    "levelDescriptions": {
+      "sober": "No measurable blood alcohol content.",
+      "minimal": "Slight relaxation. Below most legal limits.",
+      "mild": "Approaching the legal limit. Judgment may be affected.",
+      "impaired": "Above the common legal limit. Significant impairment.",
+      "severe": "Dangerous BAC. Major coordination loss is likely.",
+      "danger": "Potentially life-threatening. Seek medical help immediately."
+    },
+    "placeholderWeightLbs": "e.g. 160 lbs",
+    "placeholderWeightKg": "e.g. 72 kg",
+    "placeholderHours": "e.g. 2 hours since first drink",
+    "placeholderDrinks": "e.g. 3 drinks"
+  },
+  "table": {
+    "eyebrow": "Education",
+    "title": "What Your BAC Level Really Means",
+    "description": "Blood alcohol content measures grams of alcohol per deciliter of blood. Even a BAC of 0.02% can affect divided-attention tasks. Use this table as context for the number you see in the calculator.",
+    "headers": ["BAC Range", "Level", "Typical Effects"],
+    "rows": [
+      {
+        "range": "0.01 - 0.05%",
+        "level": "Sober / Minimal",
+        "effects": "Slight relaxation and mild mood lift. Reaction time is largely unaffected. Below legal limits in all jurisdictions."
+      },
+      {
+        "range": "0.06 - 0.08%",
+        "level": "Mildly Impaired",
+        "effects": "Reduced inhibition and subtly impaired judgment. Fine motor control begins to decline. At or near the 0.08% US legal limit."
+      },
+      {
+        "range": "0.09 - 0.15%",
+        "level": "Impaired",
+        "effects": "Noticeable balance, coordination, and reaction impairment. Slurred speech and memory gaps become more common."
+      },
+      {
+        "range": "0.16 - 0.25%",
+        "level": "Severely Impaired",
+        "effects": "Major loss of coordination and balance. Nausea and disorientation are common. Blackout risk rises sharply."
+      },
+      {
+        "range": "0.26%+",
+        "level": "Potentially Fatal",
+        "effects": "Risk of alcohol poisoning, loss of consciousness, and respiratory suppression. Seek emergency medical attention immediately."
+      }
+    ]
+  },
+  "factors": {
+    "eyebrow": "Science",
+    "title": "Factors That Affect Your BAC",
+    "description": "No two people metabolize alcohol identically. The Widmark formula covers the major physiological variables, but context still matters.",
+    "items": [
+      {
+        "title": "Body Weight",
+        "body": "Heavier individuals have a larger volume of body fluids, which dilutes alcohol more efficiently than in lighter individuals."
+      },
+      {
+        "title": "Biological Sex",
+        "body": "Differences in body composition and alcohol dehydrogenase levels can change how alcohol distributes through the body."
+      },
+      {
+        "title": "Time Elapsed",
+        "body": "Your liver metabolizes alcohol over time, usually around 0.015% BAC per hour on average."
+      },
+      {
+        "title": "Food Intake",
+        "body": "Eating before or during drinking slows absorption, which can reduce and delay peak BAC."
+      },
+      {
+        "title": "Medications",
+        "body": "Prescription and over-the-counter drugs can amplify impairment or change how your body responds to alcohol."
+      },
+      {
+        "title": "Genetics & Tolerance",
+        "body": "Genetic variation changes metabolism speed. Tolerance can affect how impaired you feel, but not your actual BAC."
+      }
+    ]
+  },
+  "faq": {
+    "eyebrow": "Help",
+    "title": "BAC Calculator FAQ",
+    "description": "Common questions about blood alcohol content, the Widmark formula, and responsible drinking.",
+    "items": [
+      {
+        "q": "How accurate is this BAC Calculator?",
+        "a": "This calculator uses the Widmark formula, a standard BAC estimation method. It is still only an estimate because food intake, hydration, medications, and metabolism can change real BAC."
+      },
+      {
+        "q": "What counts as one standard drink?",
+        "a": "A standard US drink contains 0.6 fluid ounces or about 14 grams of pure alcohol. That is about one 12 oz beer, one 5 oz glass of wine, or one 1.5 oz shot of spirits."
+      },
+      {
+        "q": "How long does it take for BAC to return to zero?",
+        "a": "A common average metabolism rate is 0.015% BAC per hour. Coffee, water, and cold showers do not speed this up. Only time lowers BAC."
+      },
+      {
+        "q": "Can I use this to decide if I am safe to drive?",
+        "a": "No. This tool is for education only. Never use an app to decide whether to drive after drinking."
+      },
+      {
+        "q": "Why does biological sex affect the result?",
+        "a": "The Widmark formula uses different distribution constants because body composition and alcohol distribution differ on average between males and females."
+      },
+      {
+        "q": "Does eating food lower my BAC?",
+        "a": "Food does not lower BAC already in your bloodstream, but it can slow alcohol absorption and reduce peak BAC."
+      },
+      {
+        "q": "What is the Widmark formula?",
+        "a": "It estimates BAC from alcohol consumed, body weight, a distribution constant, and elapsed time. It is widely used as a practical estimation method."
+      }
+    ]
+  },
+  "legal": {
+    "eyebrow": "Legal Reference",
+    "title": "Legal BAC Limits by State and Country",
+    "description": "The legal BAC limit for driving varies by jurisdiction and driver category. A legal BAC does not mean you are safe to drive.",
+    "unitedStates": "United States",
+    "international": "International",
+    "note": "Always verify the current legal BAC limit with your local authority before driving. Laws can change and often vary by age, license type, and prior offenses.",
+    "usCards": [
+      {"state": "Most States", "note": "Standard federal guideline", "limit": "0.08%"},
+      {"state": "Utah", "note": "Strictest in the US", "limit": "0.05%"},
+      {"state": "Under 21", "note": "Zero tolerance laws", "limit": "0.00%"},
+      {"state": "CDL Drivers", "note": "Commercial vehicle operators", "limit": "0.04%"}
+    ]
+  },
+  "blog": {
+    "eyebrow": "Learn",
+    "title": "BAC and blood alcohol content explained clearly.",
+    "description": "Research-backed articles about how BAC calculators work, legal driving thresholds, and the science of alcohol metabolism.",
+    "back": "Back to Learn",
+    "readSuffix": "read",
+    "useCalculator": "Use the BAC Calculator"
+  },
+  "articles": {
+    "how": {
+      "title": "How BAC Is Calculated: The Widmark Formula Explained",
+      "readTime": "6 min read",
+      "intro": "Every online BAC calculator is built on the same foundation: the Widmark formula. Understanding how that formula works helps you interpret estimates more realistically and see where the model has limits.",
+      "formulaTitle": "The Core Formula",
+      "formulaItems": [
+        "A is total alcohol consumed in grams.",
+        "W is body weight in grams.",
+        "r is the Widmark distribution constant.",
+        "T is hours elapsed since drinking began."
+      ],
+      "distributionTitle": "The Distribution Constant",
+      "distributionBody": "The distribution constant estimates how alcohol disperses through body water. Because body composition differs on average, the standard Widmark model uses different constants for males and females.",
+      "conversionTitle": "Converting Drinks to Alcohol",
+      "conversionBody": "A standard US drink contains about 14 grams of pure alcohol. BAC calculators first convert drink count and drink type into grams of alcohol before applying the formula.",
+      "metabolismTitle": "The Metabolism Rate",
+      "metabolismBody": "The liver metabolizes alcohol over time, and a commonly used average is 0.015% BAC per hour. That is why only time lowers BAC in a meaningful way.",
+      "limitsTitle": "Limitations of Any Calculator",
+      "limitsBody": "Food, medication, hydration, genetics, and drink size variation can all move actual BAC away from the estimate. Treat any calculator as a guide for awareness, not a precise measurement."
+    },
+    "legalLimits": {
+      "title": "Legal BAC Limits by State: A Complete 2025 Guide",
+      "readTime": "8 min read",
+      "intro": "Understanding legal BAC limits helps frame the risk of driving after drinking. In most of the United States, the standard limit for adult drivers is 0.08%, with stricter rules for Utah, commercial drivers, and people under 21.",
+      "federalTitle": "The Federal Standard: 0.08%",
+      "federalBody": "All states now use 0.08% as the general limit for drivers 21 and over, except Utah, which lowered its limit to 0.05% in 2019.",
+      "selectedTitle": "Selected State Limits",
+      "tableHeaders": ["State", "Standard (21+)", "CDL Drivers", "Under 21"],
+      "under21Title": "Zero Tolerance for Under 21",
+      "under21Body": "Under-21 limits are commonly 0.00% to 0.02%, which means a single drink can create legal risk even when an adult driver might still be under the general 0.08% threshold.",
+      "cdlTitle": "Commercial Driver Limits",
+      "cdlBody": "CDL drivers are held to a stricter 0.04% standard in every state, reflecting the increased safety requirements for commercial vehicles."
+    },
+    "comparison": {
+      "title": "BAC Calculator vs Breathalyzer: Which Is More Accurate?",
+      "readTime": "5 min read",
+      "intro": "BAC calculators, breathalyzers, and blood tests all answer similar questions in different ways. They vary significantly in accuracy, cost, convenience, and legal reliability.",
+      "glanceTitle": "Comparison at a Glance",
+      "headers": ["", "BAC Calculator", "Breathalyzer", "Blood Test"],
+      "calculatorTitle": "Why Calculators Are Less Accurate",
+      "calculatorBody": "A calculator only knows the information you enter. It cannot measure alcohol in your breath or blood, so it must assume average metabolism rates and standard drink sizes.",
+      "breathalyzerTitle": "Breathalyzers: Better, Not Perfect",
+      "breathalyzerBody": "Personal breathalyzers usually provide a better estimate than a calculator, but calibration, breathing pattern, and recent alcohol exposure in the mouth can still affect readings.",
+      "bloodTitle": "Blood Tests: The Gold Standard",
+      "bloodBody": "Laboratory blood tests are the most accurate measurement and carry the strongest legal weight, but they are not instant and are not practical for casual use."
+    }
+  }
+}

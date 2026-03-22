@@ -20,4 +20,4 @@ export const LEGAL_LIMITS: LegalLimit[] = [
   { country: 'Japan',          flag: '🇯🇵', limitPercent: 0.03, notes: 'Strict enforcement; near zero tolerance' },
 ]
 
-export const SITE_URL = process.env.NEXT_PUBLIC_SITE_URL ?? 'https://bac-calculator.com'
+export const SITE_URL = process.env.NEXT_PUBLIC_SITE_URL ?? 'https://baccalculator.me'

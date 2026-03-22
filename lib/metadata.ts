@@ -1,24 +1,38 @@
 import type { Metadata } from "next";
 import { SITE_URL } from "@/lib/constants";
+import { defaultLocale, locales, type Locale, getLocalizedPath } from "@/i18n/config";
 
 export function buildMetadata({
+  locale,
   title,
   description,
   path,
   ogImage = "/og-image.png",
 }: {
+  locale: Locale;
   title: string;
   description: string;
   path: string;
   ogImage?: string;
 }): Metadata {
-  const url = `${SITE_URL}${path}`;
+  const localizedPath = getLocalizedPath(locale, path);
+  const url = `${SITE_URL}${localizedPath}`;
+  const languages = Object.fromEntries(
+    locales.map((supportedLocale) => [
+      supportedLocale,
+      `${SITE_URL}${getLocalizedPath(supportedLocale, path)}`,
+    ]),
+  );
 
   return {
     title,
     description,
     alternates: {
       canonical: url,
+      languages: {
+        ...languages,
+        "x-default": `${SITE_URL}${getLocalizedPath(defaultLocale, path)}`,
+      },
     },
     openGraph: {
       title,

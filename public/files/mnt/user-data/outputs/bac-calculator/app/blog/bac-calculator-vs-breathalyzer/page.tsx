@@ -6,7 +6,7 @@ import Header from '@/components/layout/Header'
 import Footer from '@/components/layout/Footer'
 
 export const metadata: Metadata = buildMetadata({
-  title: 'BAC Calculator vs Breathalyzer: Which Is More Accurate? | bac-calculators.org',
+  title: 'BAC Calculator vs Breathalyzer: Which Is More Accurate? | baccalculator.me',
   description: 'How online BAC Calculators compare to roadside breathalyzers and lab blood tests — accuracy ranges, legal admissibility, and practical differences explained.',
   path: '/blog/bac-calculator-vs-breathalyzer',
 })

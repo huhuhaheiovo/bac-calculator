@@ -1,43 +1,40 @@
 import type { MetadataRoute } from "next";
 import { SITE_URL } from "@/lib/constants";
+import { defaultLocale, locales, getLocalizedPath } from "@/i18n/config";
 
 export default function sitemap(): MetadataRoute.Sitemap {
-  return [
+  const routes = [
+    { path: "/", priority: 1, changeFrequency: "monthly" as const },
+    { path: "/bac-calculator", priority: 1, changeFrequency: "monthly" as const },
+    { path: "/blog", priority: 0.8, changeFrequency: "weekly" as const },
     {
-      url: `${SITE_URL}/`,
-      lastModified: new Date(),
-      changeFrequency: "monthly",
-      priority: 1,
-    },
-    {
-      url: `${SITE_URL}/bac-calculator`,
-      lastModified: new Date(),
-      changeFrequency: "monthly",
-      priority: 1,
-    },
-    {
-      url: `${SITE_URL}/blog`,
-      lastModified: new Date(),
-      changeFrequency: "weekly",
-      priority: 0.8,
-    },
-    {
-      url: `${SITE_URL}/blog/how-bac-is-calculated`,
-      lastModified: new Date(),
-      changeFrequency: "monthly",
+      path: "/blog/how-bac-is-calculated",
       priority: 0.7,
+      changeFrequency: "monthly" as const,
     },
     {
-      url: `${SITE_URL}/blog/legal-bac-limits-by-state`,
-      lastModified: new Date(),
-      changeFrequency: "monthly",
+      path: "/blog/legal-bac-limits-by-state",
       priority: 0.7,
+      changeFrequency: "monthly" as const,
     },
     {
-      url: `${SITE_URL}/blog/bac-calculator-vs-breathalyzer`,
-      lastModified: new Date(),
-      changeFrequency: "monthly",
+      path: "/blog/bac-calculator-vs-breathalyzer",
       priority: 0.7,
+      changeFrequency: "monthly" as const,
     },
   ];
+
+  return locales.flatMap((locale) =>
+    routes.map((route) => ({
+      url: `${SITE_URL}${getLocalizedPath(locale, route.path)}`,
+      lastModified: new Date(),
+      changeFrequency: route.changeFrequency,
+      priority: locale === defaultLocale ? route.priority : route.priority - 0.1,
+      alternates: {
+        languages: Object.fromEntries(
+          locales.map((entry) => [entry, `${SITE_URL}${getLocalizedPath(entry, route.path)}`]),
+        ),
+      },
+    })),
+  );
 }

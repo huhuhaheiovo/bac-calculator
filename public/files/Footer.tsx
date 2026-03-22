@@ -9,7 +9,7 @@ export default function Footer() {
 
           <div>
             <div className="font-mono text-sm font-semibold text-accent mb-2">
-              bac-calculators.org
+              baccalculator.me
             </div>
             <p className="font-mono text-xs text-muted leading-relaxed max-w-xs">
               Free BAC Calculator powered by the Widmark formula.<br />
@@ -38,7 +38,7 @@ export default function Footer() {
 
         <div className="mt-10 pt-6 border-t border-border">
           <p className="font-mono text-xs text-muted/60 leading-relaxed max-w-2xl">
-            © {new Date().getFullYear()} bac-calculators.org — This BAC Calculator is provided for
+            © {new Date().getFullYear()} baccalculator.me — This BAC Calculator is provided for
             educational purposes only. It does not constitute medical or legal advice.
             Never drink and drive. If you or someone you know struggles with alcohol,
             contact SAMHSA: <span className="text-muted">1-800-662-4357</span>.

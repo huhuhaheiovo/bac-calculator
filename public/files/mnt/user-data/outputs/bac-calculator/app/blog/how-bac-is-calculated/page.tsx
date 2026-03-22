@@ -6,7 +6,7 @@ import Header from '@/components/layout/Header'
 import Footer from '@/components/layout/Footer'
 
 export const metadata: Metadata = buildMetadata({
-  title: 'How BAC Is Calculated: The Widmark Formula Explained | bac-calculators.org',
+  title: 'How BAC Is Calculated: The Widmark Formula Explained | baccalculator.me',
   description: 'Learn how every BAC Calculator works — the Widmark formula, distribution constants, metabolism rate, and why results vary between individuals.',
   path: '/blog/how-bac-is-calculated',
 })

@@ -1,27 +1,28 @@
 import type { Metadata } from "next";
+import {getLocale} from "next-intl/server";
 import "./globals.css";
 
 export const metadata: Metadata = {
-  metadataBase: new URL("https://bac-calculator.com"),
+  metadataBase: new URL("https://baccalculator.me"),
   title: {
-    default: "BAC Calculator - Estimate Blood Alcohol Content Instantly",
+    default: "BAC Calculator",
     template: "%s | BAC Calculator",
   },
-  description:
-    "Free BAC calculator using the Widmark formula to estimate blood alcohol content, legal limits, and time to sober.",
   robots: {
     index: true,
     follow: true,
   },
 };
 
-export default function RootLayout({
+export default async function RootLayout({
   children,
 }: Readonly<{
   children: React.ReactNode;
 }>) {
+  const locale = await getLocale();
+
   return (
-    <html lang="en">
+    <html lang={locale}>
       <body className="min-h-screen bg-bg text-text antialiased">
         {children}
       </body>

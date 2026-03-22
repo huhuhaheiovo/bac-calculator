@@ -26,7 +26,7 @@ const dmSans = DM_Sans({
 })
 
 export const metadata: Metadata = {
-  metadataBase: new URL('https://bac-calculator.com'),
+  metadataBase: new URL('https://baccalculator.me'),
   robots: { index: true, follow: true },
 }
 

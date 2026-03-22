@@ -6,7 +6,7 @@ import Header from '@/components/layout/Header'
 import Footer from '@/components/layout/Footer'
 
 export const metadata: Metadata = buildMetadata({
-  title: 'BAC Calculator Blog – Learn About Blood Alcohol Content | bac-calculators.org',
+  title: 'BAC Calculator Blog – Learn About Blood Alcohol Content | baccalculator.me',
   description: 'Articles about blood alcohol content, the BAC Calculator formula, legal limits by state, and responsible drinking science.',
   path: '/blog',
 })

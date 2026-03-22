@@ -54,7 +54,7 @@ export default function BACCalculator() {
             <span className="w-2 h-2 rounded-full bg-red-500" />
             <span className="w-2 h-2 rounded-full bg-yellow-400" />
             <span className="w-2 h-2 rounded-full bg-green-400" />
-            <span className="font-mono text-xs text-muted ml-2">bac-calculator.com — Widmark Formula Engine</span>
+            <span className="font-mono text-xs text-muted ml-2">baccalculator.me — Widmark Formula Engine</span>
           </div>
 
           {/* Inputs */}

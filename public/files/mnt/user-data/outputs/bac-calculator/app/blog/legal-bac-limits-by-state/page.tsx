@@ -6,7 +6,7 @@ import Header from '@/components/layout/Header'
 import Footer from '@/components/layout/Footer'
 
 export const metadata: Metadata = buildMetadata({
-  title: 'Legal BAC Limits by State 2025 – Complete US Guide | bac-calculators.org',
+  title: 'Legal BAC Limits by State 2025 – Complete US Guide | baccalculator.me',
   description: 'Every US state\'s legal blood alcohol content limit for driving in 2025. Includes limits for commercial drivers, under-21, and first-offense penalties.',
   path: '/blog/legal-bac-limits-by-state',
 })
