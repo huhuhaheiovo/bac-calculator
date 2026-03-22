@@ -11,7 +11,21 @@ type FAQItem = {
 export default function FAQ() {
   const t = useTranslations("faq");
   const items = t.raw("items") as FAQItem[];
-  const [open, setOpen] = useState<number | null>(0);
+  const [openItems, setOpenItems] = useState<Set<number>>(
+    () => new Set(items.map((_, index) => index)),
+  );
+
+  function toggle(index: number) {
+    setOpenItems((prev) => {
+      const next = new Set(prev);
+      if (next.has(index)) {
+        next.delete(index);
+      } else {
+        next.add(index);
+      }
+      return next;
+    });
+  }
 
   return (
     <section className="border-b border-border py-16">
@@ -26,13 +40,13 @@ export default function FAQ() {
 
         <div className="divide-y divide-border rounded-sm border border-border bg-card">
           {items.map((faq, index) => {
-            const isOpen = open === index;
+            const isOpen = openItems.has(index);
 
             return (
               <div key={faq.q} className="px-5 py-4">
                 <button
                   type="button"
-                  onClick={() => setOpen(isOpen ? null : index)}
+                  onClick={() => toggle(index)}
                   className="flex w-full items-start justify-between gap-4 text-left"
                 >
                   <span className="text-base leading-snug text-text">

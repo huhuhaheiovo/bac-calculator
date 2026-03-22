@@ -1,14 +1,14 @@
 {
   "en": {
     "home": {
-      "title": "BAC Calculator - Estimate Blood Alcohol Content Instantly",
-      "description": "Free BAC calculator using the Widmark formula to estimate blood alcohol content, legal thresholds, and time to sober.",
-      "h1": "BAC Calculator for fast, educational blood alcohol estimates."
+      "title": "BAC Calculator - Check Your Blood Alcohol Content Instantly",
+      "description": "Free BAC Calculator. Enter your drinks, weight, and time to estimate blood alcohol content in seconds. No login required.",
+      "h1": "BAC Calculator - Check Your Blood Alcohol Content Instantly"
     },
     "calculator": {
-      "title": "BAC Calculator - Check Blood Alcohol Content Online",
-      "description": "Use this BAC calculator to estimate blood alcohol content, compare common legal limits, and understand the Widmark formula.",
-      "h1": "BAC Calculator for fast, educational blood alcohol estimates."
+      "title": "BAC Calculator: Check BAC by Country & Drink Type",
+      "description": "Free BAC Calculator for 22 countries. Estimate blood alcohol content by drinks, weight, and time. Compare your BAC against local legal limits instantly.",
+      "h1": "BAC Calculator: Know Your Blood Alcohol Content Before You Drive"
     },
     "blog": {
       "title": "BAC Calculator Blog - Learn About Blood Alcohol Content",
@@ -43,14 +43,14 @@
   },
   "zh": {
     "home": {
-      "title": "BAC 计算器 - 快速估算血液酒精浓度",
-      "description": "免费 BAC 计算器，使用 Widmark 公式估算血液酒精浓度、法定阈值和清醒时间。",
-      "h1": "快速估算血液酒精浓度的 BAC 计算器。"
+      "title": "BAC 计算器 - 立即查看你的血液酒精浓度估算",
+      "description": "免费 BAC 计算器，输入喝了多少、体重和经过时间，即可快速估算血液酒精浓度，无需登录。",
+      "h1": "BAC 计算器 - 立即查看你的血液酒精浓度估算"
     },
     "calculator": {
-      "title": "BAC 计算器",
-      "description": "估算血液酒精浓度，对照常见法定限制，并了解 Widmark 公式。",
-      "h1": "快速估算血液酒精浓度的 BAC 计算器。"
+      "title": "BAC 计算器 - 按国家与酒类估算血液酒精浓度",
+      "description": "免费 BAC 计算器，支持 22 个国家或地区。输入酒类、体重和经过时间，按 Widmark 公式估算血液酒精浓度，并对照当地法定限制。",
+      "h1": "BAC 计算器：在开车前先了解你的血液酒精浓度"
     },
     "blog": {
       "title": "BAC 知识文章",

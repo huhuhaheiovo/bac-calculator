@@ -1,22 +1,19 @@
 "use client";
 
-import {AnimatePresence, motion} from "framer-motion";
-import {Mars, Venus} from "lucide-react";
-import Image from "next/image";
-import {useLocale, useTranslations} from "next-intl";
-import {useState} from "react";
-import {BAC_LEVEL_CONFIG, calculateBAC} from "@/lib/bac";
-import {DRINK_TYPES, LEGAL_LIMITS} from "@/lib/constants";
-import type {Locale} from "@/i18n/config";
-import type {BACResult, DrinkType, LegalLimit, Sex} from "@/types/calculator";
-
-type CalculatorMode = "simple" | "normal";
+import { AnimatePresence, motion } from "framer-motion";
+import { Mars, Venus } from "lucide-react";
+import { useLocale, useTranslations } from "next-intl";
+import { useState } from "react";
+import { BAC_LEVEL_CONFIG, calculateBAC } from "@/lib/bac";
+import { DRINK_TYPES, LEGAL_LIMITS } from "@/lib/constants";
+import type { Locale } from "@/i18n/config";
+import type { BACResult, LegalLimit, Sex, WeightUnit } from "@/types/calculator";
 
 export default function BACCalculator() {
   const locale = useLocale() as Locale;
   const t = useTranslations("calculator");
-  const [mode, setMode] = useState<CalculatorMode>("simple");
   const [sex, setSex] = useState<Sex>("male");
+  const [weightUnit, setWeightUnit] = useState<WeightUnit>("lbs");
   const [weight, setWeight] = useState("");
   const [drinks, setDrinks] = useState("");
   const [hours, setHours] = useState("");
@@ -24,15 +21,10 @@ export default function BACCalculator() {
   const [countryId, setCountryId] = useState("us");
   const [result, setResult] = useState<BACResult | null>(null);
   const [error, setError] = useState("");
-  const weightUnit = locale === "zh" ? "kg" : "lbs";
-  const effectiveCountryId = mode === "simple" ? getSimpleModeCountryId(locale) : countryId;
 
-  const selectedDrink = DRINK_TYPES.find((drink) => drink.id === drinkTypeId)!;
+  const selectedDrink = DRINK_TYPES.find((drink) => drink.id === drinkTypeId) ?? DRINK_TYPES[0];
   const selectedCountry =
-    LEGAL_LIMITS.find((country) => country.id === effectiveCountryId) ?? LEGAL_LIMITS[0];
-  const simpleDrinkTypes = DRINK_TYPES.filter(
-    (drink) => drink.showInSimpleMode && drink.iconSrc,
-  );
+    LEGAL_LIMITS.find((country) => country.id === countryId) ?? LEGAL_LIMITS[0];
 
   function handleCalculate() {
     const parsedWeight = Number.parseFloat(weight);
@@ -86,6 +78,7 @@ export default function BACCalculator() {
     : null;
   const resultLabelColor = result?.isLegal ? "#8a94a7" : "#ff4757";
   const resultValueColor = result?.isLegal ? config?.color ?? "#00d4aa" : "#ff4757";
+  const legalLimitLabel = formatPercent(selectedCountry.limitPercent);
 
   return (
     <section id="calculator" className="border-b border-border py-16">
@@ -93,8 +86,8 @@ export default function BACCalculator() {
         <p className="mb-3 font-mono text-xs uppercase tracking-[0.3em] text-accent">
           {t("eyebrow")}
         </p>
-        <p className="mb-2 text-3xl md:text-4xl">{t("title")}</p>
-        <p className="mb-8 max-w-2xl text-sm leading-relaxed text-muted">
+        <h2 className="mb-2 text-3xl md:text-4xl">{t("title")}</h2>
+        <p className="mb-8 max-w-3xl text-sm leading-relaxed text-muted">
           {t("description")}
         </p>
 
@@ -109,53 +102,38 @@ export default function BACCalculator() {
           </div>
 
           <div className="border-b border-border bg-surface/60 px-7 py-5">
-            <div className="flex flex-wrap items-center justify-between gap-4">
-              <div>
-                <p className="font-mono text-xs uppercase tracking-[0.3em] text-accent">
-                  {mode === "simple" ? t("simpleTitle") : t("title")}
-                </p>
-                <p className="mt-2 max-w-2xl text-sm leading-relaxed text-muted">
-                  {mode === "simple" ? t("simpleDescription") : t("normalDescription")}
-                </p>
-              </div>
-              <div className="inline-flex rounded-sm border border-border p-1">
-                {(["simple", "normal"] as const).map((value) => (
-                  <button
-                    key={value}
-                    type="button"
-                    onClick={() => setMode(value)}
-                    className={`rounded-sm px-4 py-2 font-mono text-xs uppercase tracking-[0.2em] transition-all ${
-                      mode === value
-                        ? "bg-accent text-black"
-                        : "text-muted hover:text-text"
-                    }`}
-                  >
-                    {value === "simple" ? t("modeSimple") : t("modeNormal")}
-                  </button>
-                ))}
-              </div>
-            </div>
+            <p className="font-mono text-xs uppercase tracking-[0.3em] text-accent">
+              {t("panelTitle")}
+            </p>
+            <p className="mt-2 max-w-3xl text-sm leading-relaxed text-muted">
+              {t("panelDescription")}
+            </p>
           </div>
 
-          {mode === "simple" ? (
-            <div className="border-b border-border bg-[linear-gradient(180deg,rgba(0,212,170,0.08),rgba(255,255,255,0.02))] px-7 py-7">
-              <Field label={t("simpleDrinkPrompt")}>
-                <div className="grid grid-cols-1 gap-3 sm:grid-cols-3">
-                  {simpleDrinkTypes.map((drink) => (
-                    <SimpleDrinkCard
-                      key={drink.id}
-                      drink={drink}
-                      locale={locale}
-                      selected={drink.id === drinkTypeId}
-                      onSelect={() => setDrinkTypeId(drink.id)}
-                    />
-                  ))}
-                </div>
-              </Field>
-            </div>
-          ) : null}
-
           <div className="grid grid-cols-1 gap-5 p-7 sm:grid-cols-2">
+            <Field label={t("country")} className="sm:col-span-2">
+              <select
+                value={countryId}
+                onChange={(event) => setCountryId(event.target.value)}
+              >
+                {LEGAL_LIMITS.map((country) => (
+                  <option key={country.id} value={country.id}>
+                    {formatCountryOption(country, locale)}
+                  </option>
+                ))}
+              </select>
+              <InfoStrip>
+                <span>{getFlagEmoji(selectedCountry.code)}</span>
+                <span>{selectedCountry.name[locale]}</span>
+                <span>{t("countryStripSeparator")}</span>
+                <span>
+                  {t("countryStripLegalLimit")} {legalLimitLabel}
+                </span>
+                <span>{t("countryStripSeparator")}</span>
+                <span>{selectedCountry.notes[locale]}</span>
+              </InfoStrip>
+            </Field>
+
             <Field label={t("sex")}>
               <div className="flex gap-3">
                 {(["male", "female"] as const).map((value) => (
@@ -181,14 +159,57 @@ export default function BACCalculator() {
             </Field>
 
             <Field label={t("weight")}>
+              <div className="flex gap-3">
+                <input
+                  type="number"
+                  value={weight}
+                  onChange={(event) => setWeight(event.target.value)}
+                  placeholder={
+                    weightUnit === "lbs"
+                      ? t("placeholderWeightLbs")
+                      : t("placeholderWeightKg")
+                  }
+                  min="1"
+                />
+                <div className="inline-flex rounded-sm border border-border p-1">
+                  {(["lbs", "kg"] as const).map((value) => (
+                    <button
+                      key={value}
+                      type="button"
+                      onClick={() => setWeightUnit(value)}
+                      className={`rounded-sm px-3 py-2 font-mono text-xs uppercase tracking-[0.16em] transition-colors ${
+                        weightUnit === value
+                          ? "bg-accent text-black"
+                          : "text-muted hover:text-text"
+                      }`}
+                    >
+                      {t(value === "lbs" ? "unitLbs" : "unitKg")}
+                    </button>
+                  ))}
+                </div>
+              </div>
+            </Field>
+
+            <Field label={t("drinkType")}>
+              <select
+                value={drinkTypeId}
+                onChange={(event) => setDrinkTypeId(event.target.value)}
+              >
+                {DRINK_TYPES.map((drink) => (
+                  <option key={drink.id} value={drink.id}>
+                    {drink.label[locale]} ({drink.description[locale]})
+                  </option>
+                ))}
+              </select>
+            </Field>
+
+            <Field label={t("drinks")}>
               <input
                 type="number"
-                value={weight}
-                onChange={(event) => setWeight(event.target.value)}
-                placeholder={
-                  weightUnit === "lbs" ? t("placeholderWeightLbs") : t("placeholderWeightKg")
-                }
-                min="1"
+                value={drinks}
+                onChange={(event) => setDrinks(event.target.value)}
+                placeholder={t("placeholderDrinks")}
+                min="0"
               />
             </Field>
 
@@ -202,54 +223,14 @@ export default function BACCalculator() {
                 step="0.5"
               />
             </Field>
-
-            <Field label={t("drinks")}>
-              <input
-                type="number"
-                value={drinks}
-                onChange={(event) => setDrinks(event.target.value)}
-                placeholder={t("placeholderDrinks")}
-                min="0"
-              />
-            </Field>
-
-            {mode === "normal" ? (
-              <Field label={t("drinkType")}>
-                <select
-                  value={drinkTypeId}
-                  onChange={(event) => setDrinkTypeId(event.target.value)}
-                >
-                  {DRINK_TYPES.map((drink) => (
-                    <option key={drink.id} value={drink.id}>
-                      {drink.label[locale]} ({drink.description[locale]})
-                    </option>
-                  ))}
-                </select>
-              </Field>
-            ) : null}
-
-            {mode === "normal" ? (
-              <Field label={t("country")} className="sm:col-span-2">
-              <select
-                value={countryId}
-                onChange={(event) => setCountryId(event.target.value)}
-              >
-                {LEGAL_LIMITS.map((country) => (
-                  <option key={country.id} value={country.id}>
-                    {formatCountryOption(country, locale)}
-                  </option>
-                ))}
-              </select>
-              </Field>
-            ) : null}
           </div>
 
           <AnimatePresence>
             {result && config ? (
               <motion.div
-                initial={{opacity: 0, y: 8}}
-                animate={{opacity: 1, y: 0}}
-                exit={{opacity: 0, y: 4}}
+                initial={{ opacity: 0, y: 8 }}
+                animate={{ opacity: 1, y: 0 }}
+                exit={{ opacity: 0, y: 4 }}
                 className="mx-7 mb-5 rounded-sm border border-border bg-surface p-6"
                 style={{
                   borderColor: `${config.color}80`,
@@ -260,17 +241,17 @@ export default function BACCalculator() {
                   <div>
                     <p
                       className="mb-3 font-mono text-xs uppercase tracking-[0.3em]"
-                      style={{color: resultLabelColor}}
+                      style={{ color: resultLabelColor }}
                     >
                       {t("resultLabel")}
                     </p>
                     <div className="mb-3 flex items-baseline gap-2">
                       <motion.span
                         key={result.bac}
-                        initial={{scale: 0.9, opacity: 0}}
-                        animate={{scale: 1, opacity: 1}}
+                        initial={{ scale: 0.9, opacity: 0 }}
+                        animate={{ scale: 1, opacity: 1 }}
                         className="font-mono text-5xl font-semibold leading-none"
-                        style={{color: resultValueColor}}
+                        style={{ color: resultValueColor }}
                       >
                         {result.bac.toFixed(3)}%
                       </motion.span>
@@ -302,12 +283,20 @@ export default function BACCalculator() {
                 <div className="mb-4 h-1.5 overflow-hidden rounded-full bg-border">
                   <motion.div
                     className="h-full rounded-full"
-                    initial={{width: 0}}
-                    animate={{width: `${barPct}%`}}
-                    transition={{duration: 0.8}}
-                    style={{background: config.color}}
+                    initial={{ width: 0 }}
+                    animate={{ width: `${barPct}%` }}
+                    transition={{ duration: 0.8 }}
+                    style={{ background: config.color }}
                   />
                 </div>
+
+                <VerdictCard
+                  country={selectedCountry}
+                  locale={locale}
+                  isLegal={result.isLegal}
+                  label={legalLimitLabel}
+                  t={t}
+                />
 
                 <div className="mt-5 border-t border-border/80 pt-5">
                   <div className="space-y-3 font-mono text-xs text-muted">
@@ -317,7 +306,7 @@ export default function BACCalculator() {
                       accentColor={config.color}
                     />
                     <MetricRow
-                      label={t("timeToLegal", {country: selectedCountry.name[locale]})}
+                      label={t("timeToLegal", { country: selectedCountry.name[locale] })}
                       value={
                         result.timeToLegalHours > 0
                           ? formatHours(result.timeToLegalHours)
@@ -361,46 +350,6 @@ export default function BACCalculator() {
   );
 }
 
-function SimpleDrinkCard({
-  drink,
-  locale,
-  selected,
-  onSelect,
-}: {
-  drink: DrinkType;
-  locale: Locale;
-  selected: boolean;
-  onSelect: () => void;
-}) {
-  return (
-    <button
-      type="button"
-      onClick={onSelect}
-      className={`flex min-h-36 flex-col items-center justify-center rounded-sm border px-4 py-5 text-center transition-all ${
-        selected
-          ? "border-accent bg-accent/8 shadow-[0_0_0_1px_rgba(0,212,170,0.25)]"
-          : "border-border bg-background/60 hover:border-white/30 hover:bg-white/[0.03]"
-      }`}
-    >
-      <div className="mb-4 flex h-14 w-14 items-center justify-center rounded-full border border-border bg-surface">
-        <Image
-          src={drink.iconSrc ?? ""}
-          alt={drink.label[locale]}
-          width={34}
-          height={34}
-          className="h-8 w-8"
-        />
-      </div>
-      <span className="font-mono text-xs uppercase tracking-[0.2em] text-text">
-        {drink.label[locale]}
-      </span>
-      <span className="mt-2 text-xs leading-relaxed text-muted">
-        {drink.description[locale]}
-      </span>
-    </button>
-  );
-}
-
 function Field({
   label,
   className,
@@ -420,6 +369,47 @@ function Field({
   );
 }
 
+function InfoStrip({ children }: { children: React.ReactNode }) {
+  return (
+    <div className="mt-3 flex flex-wrap items-center gap-x-2 gap-y-1 rounded-sm border border-border bg-background/50 px-3 py-2 font-mono text-[11px] uppercase tracking-[0.12em] text-muted">
+      {children}
+    </div>
+  );
+}
+
+function VerdictCard({
+  country,
+  locale,
+  isLegal,
+  label,
+  t,
+}: {
+  country: LegalLimit;
+  locale: Locale;
+  isLegal: boolean;
+  label: string;
+  t: ReturnType<typeof useTranslations>;
+}) {
+  return (
+    <div
+      className={`mb-5 rounded-sm border px-4 py-4 ${
+        isLegal
+          ? "border-accent/30 bg-accent/10 text-accent"
+          : "border-danger/30 bg-danger/10 text-danger"
+      }`}
+    >
+      <p className="font-mono text-xs uppercase tracking-[0.16em]">
+        {isLegal
+          ? t("belowLegal", { country: country.name[locale], limit: label })
+          : t("aboveLegal", { country: country.name[locale], limit: label })}
+      </p>
+      <p className="mt-2 text-sm leading-7 text-muted">
+        {getFlagEmoji(country.code)} {country.notes[locale]}
+      </p>
+    </div>
+  );
+}
+
 function MetricRow({
   label,
   value,
@@ -432,7 +422,7 @@ function MetricRow({
   return (
     <div className="flex items-center justify-between gap-6 border-b border-border/60 pb-3 last:border-b-0 last:pb-0">
       <span>{label}</span>
-      <span className="text-right text-base font-semibold" style={{color: accentColor}}>
+      <span className="text-right text-base font-semibold" style={{ color: accentColor }}>
         {value}
       </span>
     </div>
@@ -452,7 +442,7 @@ function BACOverTimeChart({
 }) {
   const width = 960;
   const height = 420;
-  const padding = {top: 28, right: 28, bottom: 64, left: 78};
+  const padding = { top: 28, right: 28, bottom: 64, left: 78 };
   const chartWidth = width - padding.left - padding.right;
   const chartHeight = height - padding.top - padding.bottom;
   const totalHours = Math.max(result.hoursElapsed + result.soberInHours, 1);
@@ -462,7 +452,12 @@ function BACOverTimeChart({
   const currentX = scaleX(result.hoursElapsed, roundedMaxHours, chartWidth, padding.left);
   const currentY = scaleY(result.bac, yMax, chartHeight, padding.top);
   const startY = scaleY(result.startingBac, yMax, chartHeight, padding.top);
-  const endX = scaleX(result.hoursElapsed + result.soberInHours, roundedMaxHours, chartWidth, padding.left);
+  const endX = scaleX(
+    result.hoursElapsed + result.soberInHours,
+    roundedMaxHours,
+    chartWidth,
+    padding.left,
+  );
   const limitY = scaleY(legalLimitPercent, yMax, chartHeight, padding.top);
   const xTicks = createTicks(roundedMaxHours, 4);
   const yTicks = createYTicks(yMax);
@@ -620,7 +615,7 @@ function LegendSwatch({
 
 function formatPercent(value: number) {
   if (value === 0) {
-    return "Zero";
+    return "Zero Tolerance";
   }
 
   return `${(value * 100).toFixed(value < 0.1 ? 1 : 0)}%`;
@@ -647,7 +642,9 @@ function roundUpChartValue(value: number) {
 }
 
 function createTicks(maxValue: number, count: number) {
-  return Array.from({length: count + 1}, (_, index) => Math.round((maxValue / count) * index));
+  return Array.from({ length: count + 1 }, (_, index) =>
+    Math.round((maxValue / count) * index),
+  );
 }
 
 function createYTicks(maxValue: number) {
@@ -656,10 +653,12 @@ function createYTicks(maxValue: number) {
 
 function formatCountryOption(country: LegalLimit, locale: Locale) {
   const threshold = formatPercent(country.limitPercent);
-  const otherLocale = locale === "en" ? "zh" : "en";
-  return `${country.name[locale]} (${threshold}) ${country.name[otherLocale]} (${threshold})`;
+  return `${getFlagEmoji(country.code)} ${country.name[locale]} - ${threshold}`;
 }
 
-function getSimpleModeCountryId(locale: Locale) {
-  return locale === "zh" ? "china" : "us";
+function getFlagEmoji(code: string) {
+  const normalized = code === "UK" ? "GB" : code;
+  return normalized
+    .toUpperCase()
+    .replace(/./g, (char) => String.fromCodePoint(char.charCodeAt(0) + 127397));
 }

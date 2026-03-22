@@ -24,12 +24,12 @@ export default async function MethodReferences() {
           {items.map((item) => (
             <article
               key={item.title}
-              className="rounded-sm border border-border bg-card p-5"
+              className="rounded-sm border border-border bg-card p-6"
             >
-              <h3 className="mb-3 font-mono text-xs uppercase tracking-[0.18em] text-accent">
+              <h3 className="mb-4 font-mono text-xs uppercase tracking-[0.18em] text-accent">
                 {item.title}
               </h3>
-              <p className="text-sm leading-7 text-muted">{item.body}</p>
+              <p className="text-sm leading-8 text-muted">{item.body}</p>
             </article>
           ))}
         </div>

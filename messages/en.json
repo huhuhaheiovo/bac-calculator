@@ -20,7 +20,7 @@
     }
   },
   "header": {
-    "calculator": "Calculator",
+    "calculator": "Full Calculator",
     "learn": "Learn",
     "free": "Free · No Login"
   },
@@ -40,37 +40,65 @@
     "disclaimer": "This BAC calculator is provided for educational purposes only. It is not medical or legal advice. Never use an app to decide whether to drive after drinking. If you need help with alcohol use, contact SAMHSA at 1-800-662-4357."
   },
   "landing": {
-    "eyebrow": "Instant Estimator",
+    "eyebrow": "Blood Alcohol Content Tool",
     "title": "BAC Calculator for fast, educational blood alcohol estimates.",
     "description": "This BAC Calculator uses the Widmark formula to estimate blood alcohol content, compare BAC estimates against common legal thresholds, and show how long alcohol may take to clear.",
     "primaryCta": "Start Calculator",
     "secondaryCta": "Learn How It Works",
+    "calculatorDisclaimer": "Food, medication, genetics, and tolerance can all change your real BAC estimate.",
     "cardTitle": "Use Responsibly",
     "cardLines": [
       "This BAC Calculator is an estimate, not a breathalyzer or medical test.",
-      "Never use a BAC Calculator to decide whether to drive after drinking.",
-      "Food, medication, genetics, and tolerance can all change your real BAC estimate."
-    ]
+      "Never use a BAC Calculator to decide whether to drive after drinking."
+    ],
+    "homeSubtitle": "Free BAC Calculator for a fast blood alcohol content estimate. Enter a few basics, get a quick educational result in seconds, and move to the full calculator when you need country legal limits or more drink types.",
+    "homeHowTitle": "How This BAC Calculator Works",
+    "homeHowBody": "This BAC Calculator uses the Widmark formula to estimate blood alcohol content from your weight, biological sex, number of drinks, and time since your first drink. The homepage version is a quick BAC Calculator built for speed, so it focuses on the most important inputs first. It gives you a fast educational estimate, not a breathalyzer reading or medical test. If you need a deeper blood alcohol content breakdown, the full BAC Calculator includes more drink types, legal context, and a more detailed result view.",
+    "homeHowCta": "See full methodology ->",
+    "homeLegalTitle": "BAC Calculator Legal Limits by Country",
+    "homeLegalBody": "Blood alcohol content laws vary widely. In the United States and Canada, the standard adult driving limit is often 0.08%, while countries like China and Sweden use 0.02%, and some places use zero tolerance rules. The full BAC Calculator lets you compare your estimate against country-specific thresholds and review the legal context in one place. A legal BAC does not guarantee safe driving, but the full BAC Calculator makes it easier to understand where your estimate stands.",
+    "homeLegalCta": "Check legal limits by country ->"
   },
-  "calculator": {
-    "eyebrow": "Interactive Tool",
-    "title": "Estimate Your BAC",
-    "description": "Enter your details below. This BAC Calculator applies the Widmark formula to estimate blood alcohol content, BAC level, and approximate time to sober.",
-    "modeSimple": "Simple",
-    "modeNormal": "Normal",
-    "simpleTitle": "Start Here",
-    "simpleDescription": "Pick a drink type, add your drinks, and enter a few basics to get a quick BAC Calculator estimate.",
-    "simpleDrinkPrompt": "Choose what you drank",
-    "normalDescription": "Switch back to the full form if you want the detailed BAC Calculator layout.",
+  "quickCalculator": {
+    "cardTitle": "Quick BAC Calculator",
+    "cardDescription": "Answer five quick questions and get a fast BAC estimate with less friction.",
+    "drinkType": "Drink Type",
+    "drinks": "Number of Drinks",
     "sex": "Biological Sex",
     "male": "Male",
     "female": "Female",
-    "unit": "Weight Unit",
+    "weight": "Body Weight",
+    "hours": "Hours Since First Drink",
+    "hoursUnit": "hours",
+    "lbs": "lbs",
+    "kg": "kg",
+    "calculate": "Check BAC Now",
+    "disclaimer": "Educational estimate only. Never use to decide whether to drive.",
+    "fullCalculator": "Full calculator - country legal limits, more drink types ->",
+    "resultEyebrow": "Quick Result",
+    "resultBac": "Estimated BAC",
+    "resultSober": "Estimated Hours to Sober",
+    "resultNow": "Now",
+    "resultPlaceholder": "Enter your drinks, weight, and time, then tap calculate to see your BAC estimate."
+  },
+  "calculator": {
+    "eyebrow": "Interactive Tool",
+    "title": "How the BAC Calculator Works",
+    "description": "Use the full BAC Calculator below to estimate blood alcohol content by country, drink type, body weight, biological sex, and time elapsed. This BAC Calculator applies the Widmark formula so you can compare your estimated BAC against the selected legal limit and see how long alcohol may take to clear.",
+    "panelTitle": "Full Calculation Inputs",
+    "panelDescription": "Choose your country, enter your drink type, add your body weight, and let the BAC Calculator estimate blood alcohol content and compare it with the selected legal limit.",
+    "sex": "Biological Sex",
+    "male": "Male",
+    "female": "Female",
+    "unitLbs": "lbs",
+    "unitKg": "kg",
     "weight": "Body Weight",
     "hours": "Hours Since First Drink",
     "drinks": "Number of Drinks",
     "drinkType": "Drink Type",
     "country": "Your Country / Legal BAC Limit",
+    "countryStripSeparator": "·",
+    "countryStripLegalLimit": "Legal limit:",
     "resultLabel": "BAC (g/dL)",
     "legalBadgeSafe": "Within the legal limit",
     "legalBadgeOver": "Over the legal limit",
@@ -187,16 +215,16 @@
         "a": "This BAC Calculator uses the Widmark formula, a standard BAC estimation method. It is still only an estimate because food intake, hydration, medications, and metabolism can change real BAC."
       },
       {
-        "q": "What counts as one standard drink?",
-        "a": "A standard US drink contains 0.6 fluid ounces or about 14 grams of pure alcohol. That is about one 12 oz beer, one 5 oz glass of wine, or one 1.5 oz shot of spirits."
+        "q": "What is the Widmark formula used in this BAC Calculator?",
+        "a": "The Widmark formula estimates blood alcohol content from alcohol consumed, body weight, a distribution constant, and elapsed time. This BAC Calculator uses that formula because it remains the most common practical model for educational blood alcohol content estimation."
       },
       {
         "q": "How long does it take for BAC to return to zero?",
         "a": "A common average metabolism rate is 0.015% BAC per hour. Coffee, water, and cold showers do not speed this up. Only time lowers BAC."
       },
       {
-        "q": "Can I use this BAC Calculator to decide if I am safe to drive?",
-        "a": "No. This BAC Calculator is for education only. Never use an app to decide whether to drive after drinking."
+        "q": "What counts as one standard drink?",
+        "a": "A standard US drink contains 0.6 fluid ounces or about 14 grams of pure alcohol. That is about one 12 oz beer, one 5 oz glass of wine, or one 1.5 oz shot of spirits."
       },
       {
         "q": "Why does biological sex affect the result?",
@@ -207,8 +235,8 @@
         "a": "Food does not lower BAC already in your bloodstream, but it can slow alcohol absorption and reduce peak BAC."
       },
       {
-        "q": "What is the Widmark formula?",
-        "a": "It estimates BAC from alcohol consumed, body weight, a distribution constant, and elapsed time. This BAC Calculator uses that practical estimation method to generate its result."
+        "q": "Can I use the BAC Calculator to decide if I am safe to drive?",
+        "a": "No. This BAC Calculator is for education only. Never use an app to decide whether to drive after drinking."
       }
     ]
   },
@@ -218,6 +246,13 @@
     "description": "The legal BAC limit for driving varies by jurisdiction and driver category. This BAC Calculator compares your BAC estimate with common thresholds, but a legal BAC does not mean you are safe to drive.",
     "unitedStates": "United States",
     "international": "International",
+    "countryColumn": "Country",
+    "limitColumn": "Legal Limit",
+    "notesColumn": "Notes",
+    "legendZero": "Zero tolerance",
+    "legendLow": "<= 0.02%",
+    "legendMid": "<= 0.05%",
+    "legendStandard": "0.08%",
     "note": "Always verify the current legal BAC limit with your local authority before driving. Laws can change and often vary by age, license type, and prior offenses.",
     "usCards": [
       {"state": "Most States", "note": "Standard federal guideline", "limit": "0.08%"},
@@ -229,19 +264,19 @@
   "references": {
     "eyebrow": "Method",
     "title": "Why This BAC Calculator Uses These Inputs",
-    "description": "This BAC Calculator explains its estimate through standard drink conversion, Widmark-style BAC modeling, and the commonly cited average metabolism rate used in educational tools.",
+    "description": "This BAC Calculator explains its estimate through standard drink conversion, Widmark formula modeling, and the commonly cited average metabolism rate used in educational tools.",
     "items": [
       {
         "title": "Widmark Formula",
-        "body": "This BAC Calculator uses the Widmark formula because it remains one of the most common practical methods for estimating blood alcohol content from drinks, body weight, sex, and elapsed time."
+        "body": "This BAC Calculator uses the Widmark formula because it remains one of the most widely recognized methods for estimating blood alcohol content. In practical form, the formula is BAC = (A / (W x r)) x 100 - (0.015 x T), where A is pure alcohol in grams, W is body weight in grams, r is the body-water distribution constant, and T is hours elapsed. The r value is commonly modeled as 0.68 for males and 0.55 for females to reflect average alcohol distribution differences. Erik Widmark developed this approach in the 1930s, and it still underpins many forensic and educational blood alcohol content calculations."
       },
       {
         "title": "Standard Drink Conversion",
-        "body": "A BAC Calculator is only as useful as its drink assumptions, so standard drink sizes and alcohol-by-volume estimates are used to convert beer, wine, and spirits into comparable alcohol input."
+        "body": "A BAC Calculator is only as useful as its drink assumptions, so drink type matters. One standard US drink contains about 0.6 fluid ounces or 14 grams of pure alcohol, which is roughly a 12 oz beer at 5% ABV, a 5 oz glass of wine at 12% ABV, or a 1.5 oz pour of 40% spirits. Strong beer can contain substantially more alcohol than regular beer, which is why a strong beer entry in the BAC Calculator can produce a noticeably higher blood alcohol content estimate from the same drink count."
       },
       {
         "title": "Average Metabolism Rate",
-        "body": "This BAC Calculator also applies the widely used average decline rate of about 0.015% BAC per hour, while acknowledging that real metabolism can vary meaningfully from person to person."
+        "body": "This BAC Calculator applies the commonly cited average decline rate of about 0.015% BAC per hour to estimate how long alcohol may take to clear. Real metabolism can vary meaningfully, and published ranges often fall closer to 0.010% to 0.020% BAC per hour depending on liver health, genetics, food, and other biological factors. Coffee, water, exercise, and cold showers do not accelerate alcohol metabolism once alcohol is already in the bloodstream. Only time reduces BAC in a reliable way."
       }
     ]
   },

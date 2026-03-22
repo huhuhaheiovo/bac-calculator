@@ -1,4 +1,5 @@
 import createMiddlewareModule from "next-intl/middleware";
+
 import { routing } from "@/i18n/routing";
 
 const createMiddleware =
@@ -6,7 +7,9 @@ const createMiddleware =
     ? createMiddlewareModule
     : (createMiddlewareModule as unknown as { default: typeof createMiddlewareModule }).default;
 
-export default createMiddleware(routing);
+export const proxy = createMiddleware(routing);
+
+export default proxy;
 
 export const config = {
   matcher: ["/((?!api|_next|.*\\..*).*)"],

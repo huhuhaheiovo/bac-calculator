@@ -96,10 +96,10 @@ export const faqSchema = {
     },
     {
       "@type": "Question",
-      name: "What counts as one standard drink?",
+      name: "What is the Widmark formula used in this BAC Calculator?",
       acceptedAnswer: {
         "@type": "Answer",
-        text: "A standard US drink contains about 0.6 fluid ounces or 14 grams of pure alcohol, such as a 12 oz beer, 5 oz wine, or 1.5 oz shot of spirits.",
+        text: "The Widmark formula estimates blood alcohol content from alcohol consumed, body weight, a distribution constant, and elapsed time. This BAC Calculator uses that model because it remains the most common practical method for educational BAC estimation.",
       },
     },
     {
@@ -108,6 +108,38 @@ export const faqSchema = {
       acceptedAnswer: {
         "@type": "Answer",
         text: "On average, BAC declines by about 0.015 percent per hour. Time is the only reliable way to lower BAC.",
+      },
+    },
+    {
+      "@type": "Question",
+      name: "What counts as one standard drink?",
+      acceptedAnswer: {
+        "@type": "Answer",
+        text: "A standard US drink contains about 0.6 fluid ounces or 14 grams of pure alcohol, such as a 12 oz beer, 5 oz wine, or 1.5 oz shot of spirits.",
+      },
+    },
+    {
+      "@type": "Question",
+      name: "Why does biological sex affect the BAC Calculator result?",
+      acceptedAnswer: {
+        "@type": "Answer",
+        text: "The Widmark formula uses different distribution constants because alcohol distributes differently on average across body composition, which changes the estimated blood alcohol content.",
+      },
+    },
+    {
+      "@type": "Question",
+      name: "Does eating food lower my BAC?",
+      acceptedAnswer: {
+        "@type": "Answer",
+        text: "Food does not lower alcohol already in your bloodstream, but it can slow absorption and reduce peak BAC.",
+      },
+    },
+    {
+      "@type": "Question",
+      name: "Can I use the BAC Calculator to decide if I am safe to drive?",
+      acceptedAnswer: {
+        "@type": "Answer",
+        text: "No. This calculator is for education only. Never use an app to decide whether to drive after drinking.",
       },
     },
   ],
