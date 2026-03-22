@@ -89,6 +89,7 @@ export const comparisonRows = {
     { aspect: "Legal use", calc: "Educational only", breath: "May be admissible depending on device and process", blood: "Strongest legal evidence" },
     { aspect: "Speed", calc: "Instant", breath: "Instant", blood: "Delayed" },
   ],
+
   zh: [
     { aspect: "方式", calc: "Widmark 公式", breath: "呼气传感器估算", blood: "实验室血液检测" },
     { aspect: "准确度", calc: "近似估算", breath: "认证设备更准确", blood: "最高" },
