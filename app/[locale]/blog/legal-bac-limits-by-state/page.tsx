@@ -2,8 +2,8 @@ import type { Metadata } from "next";
 import { notFound } from "next/navigation";
 import LegalLimitsArticlePage from "@/components/pages/articles/LegalLimitsArticlePage";
 import { buildMetadata } from "@/lib/metadata";
-import { getTranslations } from "next-intl/server";
 import { isValidLocale } from "@/i18n/config";
+import { getSeoContent } from "@/lib/seo";
 
 export async function generateMetadata({
   params,
@@ -16,12 +16,12 @@ export async function generateMetadata({
     notFound();
   }
 
-  const t = await getTranslations({ locale, namespace: "meta" });
+  const seo = getSeoContent(locale, "legalLimits");
 
   return buildMetadata({
     locale,
-    title: t("legalLimitsTitle"),
-    description: t("legalLimitsDescription"),
+    title: seo.title,
+    description: seo.description,
     path: "/blog/legal-bac-limits-by-state",
   });
 }

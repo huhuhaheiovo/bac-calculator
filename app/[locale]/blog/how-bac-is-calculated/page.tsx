@@ -2,8 +2,8 @@ import type { Metadata } from "next";
 import { notFound } from "next/navigation";
 import HowBacArticlePage from "@/components/pages/articles/HowBacArticlePage";
 import { buildMetadata } from "@/lib/metadata";
-import { getTranslations } from "next-intl/server";
 import { isValidLocale } from "@/i18n/config";
+import { getSeoContent } from "@/lib/seo";
 
 export async function generateMetadata({
   params,
@@ -16,12 +16,12 @@ export async function generateMetadata({
     notFound();
   }
 
-  const t = await getTranslations({ locale, namespace: "meta" });
+  const seo = getSeoContent(locale, "howBac");
 
   return buildMetadata({
     locale,
-    title: t("howBacTitle"),
-    description: t("howBacDescription"),
+    title: seo.title,
+    description: seo.description,
     path: "/blog/how-bac-is-calculated",
   });
 }

@@ -1,4 +1,4 @@
-import {getTranslations} from "next-intl/server";
+import {getLocale, getTranslations} from "next-intl/server";
 import BACCalculator from "@/components/calculator/BACCalculator";
 import BACTable from "@/components/content/BACTable";
 import FAQ from "@/components/content/FAQ";
@@ -6,7 +6,9 @@ import FactorsGrid from "@/components/content/FactorsGrid";
 import LegalLimits from "@/components/content/LegalLimits";
 import Footer from "@/components/layout/Footer";
 import Header from "@/components/layout/Header";
+import type {Locale} from "@/i18n/config";
 import {faqSchema, webAppSchema} from "@/lib/metadata";
+import {getSeoContent, type SeoPageKey} from "@/lib/seo";
 
 function JsonLd({data}: {data: object}) {
   return (
@@ -17,8 +19,14 @@ function JsonLd({data}: {data: object}) {
   );
 }
 
-export default async function BACLandingPage() {
+export default async function BACLandingPage({
+  pageKey = "home",
+}: {
+  pageKey?: Extract<SeoPageKey, "home" | "calculator">;
+}) {
+  const locale = (await getLocale()) as Locale;
   const t = await getTranslations("landing");
+  const seo = getSeoContent(locale, pageKey);
 
   return (
     <>
@@ -34,10 +42,10 @@ export default async function BACLandingPage() {
                 {t("eyebrow")}
               </p>
               <h1 className="max-w-3xl text-5xl leading-tight md:text-6xl">
-                {t("title")}
+                {seo.h1}
               </h1>
               <p className="mt-6 max-w-2xl text-base leading-8 text-muted">
-                {t("description")}
+                {seo.description}
               </p>
               <div className="mt-8 flex flex-col gap-4 sm:flex-row">
                 <a

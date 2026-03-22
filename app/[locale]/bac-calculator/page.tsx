@@ -2,8 +2,8 @@ import type { Metadata } from "next";
 import { notFound } from "next/navigation";
 import BACLandingPage from "@/components/pages/BACLandingPage";
 import { buildMetadata } from "@/lib/metadata";
-import { getTranslations } from "next-intl/server";
 import { isValidLocale } from "@/i18n/config";
+import { getSeoContent } from "@/lib/seo";
 
 export async function generateMetadata({
   params,
@@ -16,12 +16,12 @@ export async function generateMetadata({
     notFound();
   }
 
-  const t = await getTranslations({ locale, namespace: "meta" });
+  const seo = getSeoContent(locale, "calculator");
 
   return buildMetadata({
     locale,
-    title: t("calculatorTitle"),
-    description: t("calculatorDescription"),
+    title: seo.title,
+    description: seo.description,
     path: "/bac-calculator",
   });
 }
@@ -37,5 +37,5 @@ export default async function LocalizedBACPage({
     notFound();
   }
 
-  return <BACLandingPage />;
+  return <BACLandingPage pageKey="calculator" />;
 }

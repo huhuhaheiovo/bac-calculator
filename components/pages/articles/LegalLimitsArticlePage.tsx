@@ -1,12 +1,16 @@
-import {getTranslations} from "next-intl/server";
+import {getLocale, getTranslations} from "next-intl/server";
 import Footer from "@/components/layout/Footer";
 import Header from "@/components/layout/Header";
 import {Link} from "@/i18n/navigation";
+import type {Locale} from "@/i18n/config";
 import {legalStateRows} from "@/lib/content";
+import {getSeoContent} from "@/lib/seo";
 
 export default async function LegalLimitsArticlePage() {
+  const locale = (await getLocale()) as Locale;
   const t = await getTranslations();
   const article = await getTranslations("articles.legalLimits");
+  const seo = getSeoContent(locale, "legalLimits");
   const headers = article.raw("tableHeaders") as string[];
 
   return (
@@ -25,7 +29,7 @@ export default async function LegalLimitsArticlePage() {
             2025-01-20 · {article("readTime")}
           </p>
           <h1 className="mb-6 text-4xl leading-tight md:text-5xl">
-            {article("title")}
+            {seo.h1}
           </h1>
           <p className="mb-6 text-base leading-8 text-muted">
             {article("intro")}

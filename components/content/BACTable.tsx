@@ -24,14 +24,47 @@ export default async function BACTable() {
           {t("description")}
         </p>
 
-        <div className="overflow-x-auto rounded-sm border border-border bg-card">
-          <table className="w-full border-collapse font-mono text-sm">
+        <div className="overflow-hidden rounded-[1.5rem] border border-border bg-card">
+          <div className="md:hidden">
+            {rows.map((row, index) => (
+              <article
+                key={row.range}
+                className="border-b border-white/5 p-5 last:border-none"
+              >
+                <div className="flex items-center gap-3">
+                  <span
+                    className="inline-block h-3 w-3 rounded-full"
+                    style={{background: dots[index]}}
+                  />
+                  <p className="font-mono text-lg text-text">{row.range}</p>
+                </div>
+
+                <div className="mt-4 grid gap-4">
+                  <div>
+                    <p className="font-mono text-[11px] uppercase tracking-[0.18em] text-accent">
+                      {headers[1]}
+                    </p>
+                    <p className="mt-2 text-base text-muted">{row.level}</p>
+                  </div>
+
+                  <div>
+                    <p className="font-mono text-[11px] uppercase tracking-[0.18em] text-accent">
+                      {headers[2]}
+                    </p>
+                    <p className="mt-2 text-sm leading-7 text-muted">{row.effects}</p>
+                  </div>
+                </div>
+              </article>
+            ))}
+          </div>
+
+          <table className="hidden w-full border-collapse font-mono text-sm md:table">
             <thead>
               <tr>
                 {headers.map((heading) => (
                   <th
                     key={heading}
-                    className="border-b border-border px-4 py-3 text-left text-xs uppercase tracking-[0.2em] text-accent"
+                    className="border-b border-border px-4 py-4 text-left text-xs uppercase tracking-[0.2em] text-accent"
                   >
                     {heading}
                   </th>
@@ -44,17 +77,17 @@ export default async function BACTable() {
                   key={row.range}
                   className="border-b border-white/5 last:border-none"
                 >
-                  <td className="whitespace-nowrap px-4 py-4 text-text">
+                  <td className="whitespace-nowrap px-4 py-5 text-text">
                     <span
-                      className="mr-2 inline-block h-2 w-2 rounded-full align-middle"
+                      className="mr-2 inline-block h-2.5 w-2.5 rounded-full align-middle"
                       style={{background: dots[index]}}
                     />
                     {row.range}
                   </td>
-                  <td className="whitespace-nowrap px-4 py-4 text-muted">
+                  <td className="whitespace-nowrap px-4 py-5 text-muted">
                     {row.level}
                   </td>
-                  <td className="px-4 py-4 text-xs leading-relaxed text-muted">
+                  <td className="px-4 py-5 text-xs leading-relaxed text-muted">
                     {row.effects}
                   </td>
                 </tr>

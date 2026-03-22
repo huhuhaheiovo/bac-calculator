@@ -1,0 +1,66 @@
+{
+  "en": {
+    "home": {
+      "title": "BAC Calculator - Estimate Blood Alcohol Content Instantly",
+      "description": "Free BAC calculator using the Widmark formula to estimate blood alcohol content, legal thresholds, and time to sober.",
+      "h1": "BAC Calculator for fast, educational blood alcohol estimates."
+    },
+    "calculator": {
+      "title": "BAC Calculator - Check Blood Alcohol Content Online",
+      "description": "Use this BAC calculator to estimate blood alcohol content, compare common legal limits, and understand the Widmark formula.",
+      "h1": "BAC Calculator for fast, educational blood alcohol estimates."
+    },
+    "blog": {
+      "title": "BAC Calculator Blog - Learn About Blood Alcohol Content",
+      "description": "Research-backed articles about BAC, legal limits, the Widmark formula, and how calculator estimates compare to breathalyzers.",
+      "h1": "BAC and blood alcohol content explained clearly."
+    },
+    "howBac": {
+      "title": "How BAC Is Calculated: The Widmark Formula Explained",
+      "description": "Learn how BAC calculators use the Widmark formula, distribution constants, and metabolism rate to estimate blood alcohol content.",
+      "h1": "How BAC Is Calculated: The Widmark Formula Explained"
+    },
+    "legalLimits": {
+      "title": "Legal BAC Limits by State 2025",
+      "description": "Selected US legal BAC limits for adult drivers, CDL drivers, and drivers under 21, including Utah's stricter threshold.",
+      "h1": "Legal BAC Limits by State: A Complete 2025 Guide"
+    },
+    "comparison": {
+      "title": "BAC Calculator vs Breathalyzer: Which Is More Accurate?",
+      "description": "Compare BAC calculators, personal breathalyzers, and blood tests across accuracy, speed, cost, and legal reliability.",
+      "h1": "BAC Calculator vs Breathalyzer: Which Is More Accurate?"
+    }
+  },
+  "zh": {
+    "home": {
+      "title": "BAC 计算器 - 快速估算血液酒精浓度",
+      "description": "免费 BAC 计算器，使用 Widmark 公式估算血液酒精浓度、法定阈值和清醒时间。",
+      "h1": "快速估算血液酒精浓度的 BAC 计算器。"
+    },
+    "calculator": {
+      "title": "BAC 计算器",
+      "description": "估算血液酒精浓度，对照常见法定限制，并了解 Widmark 公式。",
+      "h1": "快速估算血液酒精浓度的 BAC 计算器。"
+    },
+    "blog": {
+      "title": "BAC 知识文章",
+      "description": "阅读关于 BAC、法定阈值、Widmark 公式以及 BAC 计算器与呼气测试仪差异的文章。",
+      "h1": "更清楚地理解 BAC 与血液酒精浓度。"
+    },
+    "howBac": {
+      "title": "BAC 是如何计算的：Widmark 公式解析",
+      "description": "了解 BAC 计算器如何利用 Widmark 公式、分布常数和代谢速度估算血液酒精浓度。",
+      "h1": "BAC 是如何计算的：Widmark 公式解析"
+    },
+    "legalLimits": {
+      "title": "美国各州法定 BAC 限制",
+      "description": "了解美国成年驾驶员、商用驾驶员和 21 岁以下驾驶员的法定 BAC 标准。",
+      "h1": "美国各州法定 BAC 限制：2025 指南"
+    },
+    "comparison": {
+      "title": "BAC 计算器与呼气测试仪对比",
+      "description": "比较 BAC 计算器、呼气测试仪和血液检测在准确度、速度、成本和法律用途上的差异。",
+      "h1": "BAC 计算器与呼气酒精测试仪对比"
+    }
+  }
+}

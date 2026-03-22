@@ -4,10 +4,12 @@ import Header from "@/components/layout/Header";
 import {Link} from "@/i18n/navigation";
 import type {Locale} from "@/i18n/config";
 import {getBlogPosts} from "@/lib/content";
+import {getSeoContent} from "@/lib/seo";
 
 export default async function BlogIndexPage() {
   const locale = (await getLocale()) as Locale;
   const t = await getTranslations("blog");
+  const seo = getSeoContent(locale, "blog");
   const posts = getBlogPosts(locale);
 
   return (
@@ -19,9 +21,9 @@ export default async function BlogIndexPage() {
             <p className="mb-4 font-mono text-xs uppercase tracking-[0.3em] text-accent">
               {t("eyebrow")}
             </p>
-            <h1 className="mb-4 text-4xl md:text-5xl">{t("title")}</h1>
+            <h1 className="mb-4 text-4xl md:text-5xl">{seo.h1}</h1>
             <p className="max-w-2xl text-base leading-8 text-muted">
-              {t("description")}
+              {seo.description}
             </p>
           </div>
         </section>
