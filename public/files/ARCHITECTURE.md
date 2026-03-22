@@ -96,7 +96,7 @@ export function calculateBAC(input: BACInput): BACResult {
 export const generateMetadata = (): Metadata => ({
   title: 'BAC Calculator – Check Blood Alcohol Level Instantly',
   description: '...',
-  alternates: { canonical: 'https://bac-calculator.com/bac-calculator' },
+  alternates: { canonical: 'https://baccalculator.me/bac-calculator' },
   openGraph: { ... },
 })
 
@@ -121,8 +121,8 @@ export default function BACCalculatorPage() {
 ```ts
 export default function sitemap(): MetadataRoute.Sitemap {
   return [
-    { url: 'https://bac-calculator.com/bac-calculator', priority: 1.0 },
-    { url: 'https://bac-calculator.com/blog', priority: 0.8 },
+    { url: 'https://baccalculator.me/bac-calculator', priority: 1.0 },
+    { url: 'https://baccalculator.me/blog', priority: 0.8 },
     // ... blog posts
   ]
 }
@@ -133,7 +133,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
 ## SEO Architecture
 
 ```
-bac-calculator.com/
+baccalculator.me/
 ├── /bac-calculator          ← 核心词页 (priority 1.0)
 ├── /blog/
 │   ├── how-bac-is-calculated          ← 长尾: "how is bac calculated"
@@ -187,6 +187,6 @@ BACCalculatorPage (Server Component)
 
 ```bash
 # .env.local
-NEXT_PUBLIC_SITE_URL=https://bac-calculator.com
+NEXT_PUBLIC_SITE_URL=https://baccalculator.me
 NEXT_PUBLIC_GA_ID=G-XXXXXXXXXX   # Google Analytics 4
 ```
